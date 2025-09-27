@@ -17,6 +17,7 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 - **Project Portfolio**: Showcase of development projects
 - **Skills Display**: Technical skills and programming languages
 - **Awards & Certificates**: Academic achievements and certifications
+- **Analytics Integration**: Google Analytics for website traffic insights
 
 ## 🛠️ Technologies Used
 
@@ -24,6 +25,7 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 - **Styling**: Custom CSS with animations and responsive design
 - **Routing**: React Router for single-page application navigation
 - **Email Service**: EmailJS for contact form functionality
+- **Analytics**: Google Analytics (gtag.js) for website insights
 - **Build Tool**: Create React App
 - **Version Control**: Git & GitHub
 
@@ -94,12 +96,32 @@ portfolio/
    
    d. Restart the development server after creating `.env`
 
-4. **Start the development server**
+4. **Set up Google Analytics (Optional)**
+   
+   For website analytics:
+   
+   a. Create a Google Analytics account at [Google Analytics](https://analytics.google.com/)
+   
+   b. Create a new property and get your tracking ID (format: G-XXXXXXXXXX)
+   
+   c. Update the tracking ID in `public/index.html`:
+   ```html
+   <!-- Google tag (gtag.js) -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'YOUR_TRACKING_ID');
+   </script>
+   ```
+
+5. **Start the development server**
    ```bash
    npm start
    ```
 
-5. **Open your browser**
+6. **Open your browser**
    
    Navigate to [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
@@ -156,6 +178,16 @@ The portfolio is fully responsive and optimized for:
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+## 🔒 Privacy & Analytics
+
+This website uses Google Analytics to understand visitor behavior and improve user experience. Google Analytics collects anonymous data about:
+- Page views and navigation patterns
+- Device and browser information
+- Geographic location (country/city level)
+- Referral sources
+
+No personal information is collected. You can opt out of Google Analytics tracking by installing browser extensions or adjusting your browser settings.
 
 ## 🙏 Acknowledgments
 
