@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import profilePic from '../assets/profile.jpg';
+import resumePDF from '../assets/RESUME.pdf';
 import ClickSpeedGame from '../components/ClickSpeedGame';
 import './Home.css';
 
@@ -60,7 +61,7 @@ function Home() {
               <div className="resume-label"> Download Resume </div>{' '}
               <div className="resume-value">
                 <a
-                  href="/RESUME.pdf"
+                  href={resumePDF}
                   className="award-link"
                   target="_blank"
                   rel="noopener noreferrer"
