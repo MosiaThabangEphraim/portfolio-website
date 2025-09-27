@@ -61,7 +61,7 @@ function Home() {
               <div className="resume-label"> Download Resume </div>{' '}
               <div className="resume-value">
                 <a
-                  href={process.env.PUBLIC_URL + '/RESUME.pdf'}
+                  href={resumePDF}
                   className="award-link"
                   target="_blank"
                   rel="noopener noreferrer"
