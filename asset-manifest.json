@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-website/static/css/main.85c68289.css",
-    "main.js": "/portfolio-website/static/js/main.4b99fd49.js",
+    "main.js": "/portfolio-website/static/js/main.17cdd068.js",
     "static/js/453.ad7768ec.chunk.js": "/portfolio-website/static/js/453.ad7768ec.chunk.js",
     "static/media/NWU_Faculty_Yearbook_2025.pdf": "/portfolio-website/static/media/NWU_Faculty_Yearbook_2025.44ff5ebb4e21429687ca.pdf",
     "static/media/fnas-deans-award.jpg": "/portfolio-website/static/media/fnas-deans-award.afc136e5561b67a1d851.jpg",
@@ -13,11 +13,11 @@
     "static/media/profile.jpg": "/portfolio-website/static/media/profile.cce4c0718b0b298217e6.jpg",
     "index.html": "/portfolio-website/index.html",
     "main.85c68289.css.map": "/portfolio-website/static/css/main.85c68289.css.map",
-    "main.4b99fd49.js.map": "/portfolio-website/static/js/main.4b99fd49.js.map",
+    "main.17cdd068.js.map": "/portfolio-website/static/js/main.17cdd068.js.map",
     "453.ad7768ec.chunk.js.map": "/portfolio-website/static/js/453.ad7768ec.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.85c68289.css",
-    "static/js/main.4b99fd49.js"
+    "static/js/main.17cdd068.js"
   ]
 }
