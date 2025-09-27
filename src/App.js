@@ -19,6 +19,15 @@ function App() {
     <Router>
       <div className="app-container">
         <nav className="navbar">
+          <div className="navbar-exit">
+            <button 
+              className="exit-btn" 
+              onClick={() => window.close()}
+              title="Close all tabs"
+            >
+              ✕
+            </button>
+          </div>
           <ul>
             <li>
               {' '}
