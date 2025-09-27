@@ -1,0 +1,136 @@
+.skills-container {
+  padding: 30px 50px 50px 50px;
+  color: #fff;
+  animation: fadeIn 1.5s ease-in;
+}
+
+.section-heading {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #00bfff;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* reuse controls style from Courses */
+
+.controls-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+  align-items: flex-end;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.1);
+  animation: fadeIn 1.2s ease-in;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #00bfff;
+  font-weight: bold;
+  font-size: 0.95rem;
+  min-width: 160px;
+}
+
+.control-group label {
+  color: #ccc;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.controls-container input,
+.controls-container select {
+  background-color: rgba(0, 191, 255, 0.05);
+  border: 1px solid rgba(0, 191, 255, 0.4);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition:
+    border 0.3s ease,
+    background-color 0.3s ease;
+  appearance: none;
+}
+
+.controls-container select option {
+  background-color: #0a0a0a;
+  color: #fff;
+}
+
+.controls-container button {
+  background-color: rgba(0, 191, 255, 0.15);
+  color: #00bfff;
+  font-weight: bold;
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.controls-container button:hover {
+  background-color: rgba(0, 191, 255, 0.3);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.skill-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 0 16px rgba(0, 191, 255, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+}
+
+.skill-name {
+  font-weight: bold;
+  color: #ddd;
+  margin-bottom: 6px;
+}
+
+.skill-category {
+  font-size: 0.9rem;
+  color: #00bfff;
+  font-weight: bold;
+}
+
+.skill-card.soft {
+  border-left: 4px solid #1e90ff;
+}
+
+.skill-card.technical {
+  border-left: 4px solid #00bfff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .controls-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
