@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-website/static/css/main.85c68289.css",
-    "main.js": "/portfolio-website/static/js/main.62fa8c16.js",
+    "main.js": "/portfolio-website/static/js/main.199c78df.js",
     "static/js/453.ad7768ec.chunk.js": "/portfolio-website/static/js/453.ad7768ec.chunk.js",
     "static/media/NWU_Faculty_Yearbook_2025.pdf": "/portfolio-website/static/media/NWU_Faculty_Yearbook_2025.44ff5ebb4e21429687ca.pdf",
     "static/media/fnas-deans-award.jpg": "/portfolio-website/static/media/fnas-deans-award.afc136e5561b67a1d851.jpg",
@@ -9,14 +9,15 @@
     "static/media/AI COURSE CERTIFICATE.pdf": "/portfolio-website/static/media/AI COURSE CERTIFICATE.25676227369d6b16b1b4.pdf",
     "static/media/golden-key-certificate.pdf": "/portfolio-website/static/media/golden-key-certificate.4e066a7a4d34195756c4.pdf",
     "static/media/FNB APP ACADEMY CERTIFICATE.pdf": "/portfolio-website/static/media/FNB APP ACADEMY CERTIFICATE.3122b1f4bf86906dfebc.pdf",
+    "static/media/RESUME.pdf": "/portfolio-website/static/media/RESUME.48959a841433c9cfadf4.pdf",
     "static/media/profile.jpg": "/portfolio-website/static/media/profile.cce4c0718b0b298217e6.jpg",
     "index.html": "/portfolio-website/index.html",
     "main.85c68289.css.map": "/portfolio-website/static/css/main.85c68289.css.map",
-    "main.62fa8c16.js.map": "/portfolio-website/static/js/main.62fa8c16.js.map",
+    "main.199c78df.js.map": "/portfolio-website/static/js/main.199c78df.js.map",
     "453.ad7768ec.chunk.js.map": "/portfolio-website/static/js/453.ad7768ec.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.85c68289.css",
-    "static/js/main.62fa8c16.js"
+    "static/js/main.199c78df.js"
   ]
 }
