@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 
 ## 🚀 Live Demo
 
-[View Portfolio](https://yourusername.github.io/portfolio) <!-- Update with your actual GitHub Pages URL -->
+[View Portfolio](https://mosiathabangephraim.github.io/portfolio-website)
 
 ## 📋 Features
 
