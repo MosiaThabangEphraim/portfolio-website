@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Professional portfolio website with Google Analytics integration, interactive features, and responsive design",
-  "homepage": "https://mosiathabangephraim.github.io/portfolio-website",
+  "homepage": "https://mosiathabangephraim.github.io/portfolio-website/",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@testing-library/dom": "^10.4.1",
