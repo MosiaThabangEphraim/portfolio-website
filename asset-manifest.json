@@ -1,23 +1,21 @@
 {
   "files": {
-    "main.css": "/portfolio-website/static/css/main.85c68289.css",
-    "main.js": "/portfolio-website/static/js/main.199c78df.js",
-    "static/js/453.ad7768ec.chunk.js": "/portfolio-website/static/js/453.ad7768ec.chunk.js",
-    "static/media/NWU_Faculty_Yearbook_2025.pdf": "/portfolio-website/static/media/NWU_Faculty_Yearbook_2025.44ff5ebb4e21429687ca.pdf",
+    "main.css": "/portfolio-website/static/css/main.b062fa43.css",
+    "main.js": "/portfolio-website/static/js/main.2ba5160e.js",
+    "static/js/453.635f5f07.chunk.js": "/portfolio-website/static/js/453.635f5f07.chunk.js",
+    "static/media/GradStar Top 100.jpeg": "/portfolio-website/static/media/GradStar Top 100.d6f4896e7cd2bbd9e6d1.jpeg",
     "static/media/fnas-deans-award.jpg": "/portfolio-website/static/media/fnas-deans-award.afc136e5561b67a1d851.jpg",
-    "static/media/INTRODUCTION TO CYBERSECURITY CERTIFICATE.pdf": "/portfolio-website/static/media/INTRODUCTION TO CYBERSECURITY CERTIFICATE.88d42df37d734a17db54.pdf",
-    "static/media/AI COURSE CERTIFICATE.pdf": "/portfolio-website/static/media/AI COURSE CERTIFICATE.25676227369d6b16b1b4.pdf",
+    "static/media/AcademicRecord_54607949.pdf": "/portfolio-website/static/media/AcademicRecord_54607949.9afaf1953e2da2ebf93f.pdf",
     "static/media/golden-key-certificate.pdf": "/portfolio-website/static/media/golden-key-certificate.4e066a7a4d34195756c4.pdf",
-    "static/media/FNB APP ACADEMY CERTIFICATE.pdf": "/portfolio-website/static/media/FNB APP ACADEMY CERTIFICATE.3122b1f4bf86906dfebc.pdf",
-    "static/media/RESUME.pdf": "/portfolio-website/static/media/RESUME.48959a841433c9cfadf4.pdf",
+    "static/media/MOSIA THABANG.pdf": "/portfolio-website/static/media/MOSIA THABANG.1e1a10614f89d6bc6593.pdf",
     "static/media/profile.jpg": "/portfolio-website/static/media/profile.cce4c0718b0b298217e6.jpg",
     "index.html": "/portfolio-website/index.html",
-    "main.85c68289.css.map": "/portfolio-website/static/css/main.85c68289.css.map",
-    "main.199c78df.js.map": "/portfolio-website/static/js/main.199c78df.js.map",
-    "453.ad7768ec.chunk.js.map": "/portfolio-website/static/js/453.ad7768ec.chunk.js.map"
+    "main.b062fa43.css.map": "/portfolio-website/static/css/main.b062fa43.css.map",
+    "main.2ba5160e.js.map": "/portfolio-website/static/js/main.2ba5160e.js.map",
+    "453.635f5f07.chunk.js.map": "/portfolio-website/static/js/453.635f5f07.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.85c68289.css",
-    "static/js/main.199c78df.js"
+    "static/css/main.b062fa43.css",
+    "static/js/main.2ba5160e.js"
   ]
 }
