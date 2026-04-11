@@ -12,11 +12,11 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 - **Interactive Navigation**: Smooth routing between different sections
 - **Contact Form**: Integrated EmailJS for direct communication
 - **Downloadable Resume**: PDF resume available for download
-- **Interactive Game**: Click speed challenge for user engagement
-- **Academic Showcase**: Detailed course information and achievements
+- **Academic Showcase**: Detailed coursework information and achievements. PDF Academic Record available for download.
 - **Project Portfolio**: Showcase of development projects
-- **Skills Display**: Technical skills and programming languages
+- **Skills Display**: Soft skills Technical skills
 - **Awards & Certificates**: Academic achievements and certifications
+- **AI Chatbot powered by Chatbase**: AI chatbot integrated using Chatbase to provide real-time responses, enhance user interaction, and deliver intelligent, automated support based on trained data.
 
 ## 🛠️ Technologies Used
 
