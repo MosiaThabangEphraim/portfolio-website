@@ -1,68 +1,22 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Skills.css';
+import { skills as skillsData } from '../data/skillsData';
 
 function Skills() {
+  const location = useLocation();
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState(''); // '' | 'Soft' | 'Technical'
   const [ascending, setAscending] = useState(true);
 
-  const skills = useMemo(
-    () => [
-      // Soft Skills
-      { name: 'Critical and quick thinking', category: 'Soft' },
-      {
-        name: 'Analysis, Decision Making and Problem Solving',
-        category: 'Soft',
-      },
-      {
-        name: 'Ability to Learn, Work and Multitask Under Pressure',
-        category: 'Soft',
-      },
-      { name: 'Creativity', category: 'Soft' },
-      { name: 'Teamwork, Cooperation and Collaboration', category: 'Soft' },
-      { name: 'Communication', category: 'Soft' },
-      { name: 'Adaptability and Flexibility', category: 'Soft' },
-      { name: 'Leadership', category: 'Soft' },
-      { name: 'Time Management', category: 'Soft' },
-      { name: 'Professionalism', category: 'Soft' },
-      { name: 'Planning and Organization', category: 'Soft' },
-      { name: 'People Management', category: 'Soft' },
-      // Technical Skills
-      { name: 'Advanced Computer Skills', category: 'Technical' },
-      { name: 'Basic Troubleshooting', category: 'Technical' },
-      {
-        name: 'Software Installation, Updates and Configuration',
-        category: 'Technical',
-      },
-      { name: 'Microsoft Office Suite', category: 'Technical' },
-      { name: 'Application Development', category: 'Technical' },
-      { name: 'Web Development', category: 'Technical' },
-      { name: 'Project Documentation', category: 'Technical' },
-      { name: 'Cloud Deployment and Hosting', category: 'Technical' },
-      { name: 'Database Design and Programming', category: 'Technical' },
-      {
-        name: 'Programming Languages: Python, C++, C#, Java, Javascript',
-        category: 'Technical',
-      },
-      {
-        name: 'UI Markup & Web Technologies: HTML, CSS, XAML',
-        category: 'Technical',
-      },
-      {
-        name: 'Frameworks and Platforms: .NET MAUI, React, .ASP, .NET',
-        category: 'Technical',
-      },
-      {
-        name: 'Tools and IDE: Visual Studio, Visual Studio Code, Code::Blocks, Notepad++',
-        category: 'Technical',
-      },
-      {
-        name: 'Version Control and Collaboration: GitHub, Discord',
-        category: 'Technical',
-      },
-    ],
-    []
-  );
+  const skills = useMemo(() => skillsData, []);
+
+  useEffect(() => {
+    const searchTerm = location.state?.searchTerm;
+    if (typeof searchTerm === 'string' && searchTerm.trim().length > 0) {
+      setSearch(searchTerm);
+    }
+  }, [location.state]);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -74,6 +28,20 @@ function Skills() {
         return ascending ? comp : -comp;
       });
   }, [skills, search, categoryFilter, ascending]);
+
+  const renderSkillName = (name) => {
+    if (typeof name !== 'string') return name;
+    const parts = name.split('\n');
+    if (parts.length <= 1) return name;
+
+    const [title, ...lines] = parts;
+    return (
+      <>
+        <span className="skill-title-line">{title}</span>
+        <span className="skill-sub-lines">{lines.join('\n')}</span>
+      </>
+    );
+  };
 
   return (
     <div className="skills-container">
@@ -125,7 +93,7 @@ function Skills() {
             key={i}
             className={`skill-card ${s.category === 'Soft' ? 'soft' : 'technical'}`}
           >
-            <div className="skill-name"> {s.name} </div>{' '}
+            <div className="skill-name"> {renderSkillName(s.name)} </div>{' '}
             <div className="skill-category"> {s.category} </div>{' '}
           </div>
         ))}{' '}

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
@@ -28,18 +29,11 @@ function Contact() {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-
-    // EmailJS configuration - replace with your actual values
-    const serviceId =
-      process.env.REACT_APP_EMAILJS_SERVICE || 'your_service_id';
-    const templateId =
-      process.env.REACT_APP_EMAILJS_TEMPLATE || 'your_template_id';
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC || 'your_public_key';
-
     try {
       await emailjs.send(
-        serviceId,
-        templateId,
+        // eslint-disable-next-line no-undef
+        process.env.REACT_APP_EMAILJS_SERVICE,
+        process.env.REACT_APP_EMAILJS_TEMPLATE,
         {
           name,
           email,
@@ -47,7 +41,7 @@ function Contact() {
           message,
           to_email: 'mosiathabangephraim2@gmail.com',
         },
-        publicKey
+        process.env.REACT_APP_EMAILJS_PUBLIC
       );
       setSent(true);
       setTimeout(() => setSent(false), 4000);
@@ -57,7 +51,6 @@ function Contact() {
       setMessage('');
       setErrors({});
     } catch (err) {
-      console.error('EmailJS Error:', err);
       setErrors({ submit: 'Failed to send message. Please try again later.' });
     }
   };
@@ -88,7 +81,7 @@ function Contact() {
         </div>
         <div className="contact-item">
           <div className="contact-label">Mobile</div>
-          <div className="contact-value">071 781 4859</div>
+          <div className="contact-value">+27717814859</div>
         </div>
       </div>
 

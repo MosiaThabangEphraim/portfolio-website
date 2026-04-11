@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Courses.css'; // Link to your separate CSS
+import academicRecordPDF from '../assets/AcademicRecord_54607949.pdf';
 
 const Courses = () => {
+  const location = useLocation();
   const yearOneCourses = [
     {
       module: 'Academic Literacy Develoment',
@@ -69,7 +72,7 @@ const Courses = () => {
     {
       module: 'Problem Solving for Managers',
       code: 'BMAN223',
-      result: 'In Progress',
+      result: 'Distinction',
       type: 'Ancillary',
     },
     {
@@ -105,25 +108,25 @@ const Courses = () => {
     {
       module: 'Data Structures and Algorithms',
       code: 'CMPG221',
-      result: 'In Progress',
+      result: 'Distinction',
       type: 'Core',
     },
     {
       module: 'Data Analytics 2',
       code: 'CMPG222',
-      result: 'In Progress',
+      result: 'Distinction',
       type: 'Core',
     },
     {
       module: 'Systems Analysis and Design 2',
       code: 'CMPG223',
-      result: 'In Progress',
+      result: 'Distinction',
       type: 'Core',
     },
     {
       module: 'Discrete Mathematics',
       code: 'MTHS225',
-      result: 'In Progress',
+      result: 'Distinction',
       type: 'Ancillary',
     },
     {
@@ -135,15 +138,74 @@ const Courses = () => {
     {
       module: 'Understanding the Natural World',
       code: 'WVNS221',
-      result: 'In Progress',
+      result: 'Pass',
       type: 'Ancillary',
     },
   ];
 
+  const yearThreeCourses = [
+    {
+      module: 'Databases',
+      code: 'CMPG311',
+      result: 'In Progress',
+      type: 'Core',
+    },
+    {
+      module: 'Decision Support Systems 1',
+      code: 'CMPG312',
+      result: 'In Progress',
+      type: 'Core',
+    },
+    {
+      module: 'Artificial Intelligence',
+      code: 'CMPG313',
+      result: 'In Progress',
+      type: 'Core',
+    },
+    {
+      module: 'Computer Networks',
+      code: 'CMPG315',
+      result: 'In Progress',
+      type: 'Core',
+    },
+    {
+      module: 'Advanced Databases',
+      code: 'CMPG321',
+      result: 'In Progress',
+      type: 'Core',
+    },
+    {
+      module: 'Decision Support Systems 2',
+      code: 'CMPG322',
+      result: 'In Progress',
+      type: 'Core',
+    },
+    {
+      module: 'IT Developments',
+      code: 'CMPG323',
+      result: 'In Progress',
+      type: 'Core',
+    },
+    {
+      module: 'Operating Systems',
+      code: 'CMPG324',
+      result: 'In Progress',
+      type: 'Core',
+    },
+  ];
+
   const [search, setSearch] = useState('');
-  const [sortAsc, setSortAsc] = useState(true);
+  const [sortAsc, setSortAsc] = useState(false);
   const [filterType, setFilterType] = useState('');
   const [filterResult, setFilterResult] = useState('');
+
+  useEffect(() => {
+    const searchTerm = location.state?.searchTerm;
+    if (typeof searchTerm === 'string' && searchTerm.trim().length > 0) {
+      const match = searchTerm.match(/\(([^)]+)\)\s*$/);
+      setSearch(match ? match[1] : searchTerm);
+    }
+  }, [location.state]);
 
   const handleSearch = (course) => {
     const lowerSearch = search.toLowerCase();
@@ -203,7 +265,17 @@ const Courses = () => {
 
   return (
     <div className="course-container">
-      <div className="section-heading"> Courses </div>{' '}
+      <div className="section-heading"> Coursework </div>{' '}
+      <div className="overall-average">
+        <a
+          href={academicRecordPDF}
+          className="award-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download Academic Record{' '}
+        </a>{' '}
+      </div>{' '}
       <div className="controls-container">
         <div className="control-group">
           <label> Search Module </label>{' '}
@@ -263,15 +335,28 @@ const Courses = () => {
         <>
           {' '}
           {renderCourseBlock('YEAR 1 - 2024', yearOneCourses, '86%')}{' '}
-          {renderCourseBlock('YEAR 2 - 2025', yearTwoCourses)}{' '}
+          {renderCourseBlock('YEAR 2 - 2025', yearTwoCourses, '78%')}{' '}
+          {renderCourseBlock(
+            'YEAR 3 - 2026',
+            yearThreeCourses,
+            'In Progress'
+          )}{' '}
         </>
       ) : (
         <>
           {' '}
-          {renderCourseBlock('YEAR 2 - 2025', yearTwoCourses)}{' '}
+          {renderCourseBlock(
+            'YEAR 3 - 2026',
+            yearThreeCourses,
+            'In Progress'
+          )}{' '}
+          {renderCourseBlock('YEAR 2 - 2025', yearTwoCourses, '78%')}{' '}
           {renderCourseBlock('YEAR 1 - 2024', yearOneCourses, '86%')}{' '}
         </>
       )}{' '}
+      <div className="overall-average">
+        The current overall average for the degree is 82%.
+      </div>
     </div>
   );
 };

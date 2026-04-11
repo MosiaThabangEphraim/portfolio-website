@@ -1,33 +1,37 @@
 .career-container {
   padding: 30px 50px 50px 50px;
-  color: #fff;
+  color: #000000;
   animation: fadeIn 1.5s ease-in;
 }
 
 .section-heading {
   font-size: 2.8rem;
   font-weight: bold;
-  color: #00bfff;
+  color: #000000;
   margin-bottom: 10px;
   text-align: left;
+  text-transform: uppercase;
 }
 
 .career-intro {
-  color: #ddd;
+  color: #000000;
   font-weight: bold;
   margin-bottom: 18px;
+  text-align: justify;
+  line-height: 1.6;
 }
 
 .career-stage {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #f5f5f5;
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 16px;
-  box-shadow: 0 0 16px rgba(0, 191, 255, 0.15);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #000000;
 }
 
 .career-stage-title {
-  color: #1e90ff;
+  color: #000000;
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 8px;
@@ -39,8 +43,10 @@
 }
 
 .career-list li {
-  color: #ddd;
+  color: #000000;
   margin-bottom: 6px;
+  text-align: justify;
+  line-height: 1.6;
 }
 
 @keyframes fadeIn {
@@ -53,4 +59,8 @@
     transform: translateY(0);
   }
 }
+
+
+
+
 

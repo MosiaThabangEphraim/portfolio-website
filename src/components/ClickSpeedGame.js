@@ -92,32 +92,31 @@ function ClickSpeedGame() {
   return (
     <div className="click-game-container">
       <div className="game-header">
-        <h3 className="game-title">⚡ Click Speed Challenge</h3>
+        <h3 className="game-title"> ⚡Click Speed Challenge </h3>{' '}
         <p className="game-description">
           Click as fast as you can in 10 seconds!
-        </p>
-        <p className="game-fun-indicator">🎮 Just for fun!</p>
-      </div>
-
+        </p>{' '}
+        <p className="game-fun-indicator"> 🎮Just for fun! </p>{' '}
+      </div>{' '}
       <div className="game-stats">
         <div className="stat-item">
-          <span className="stat-label">Current Score:</span>
-          <span className="stat-value">{currentScore}</span>
-        </div>
+          <span className="stat-label"> Current Score: </span>{' '}
+          <span className="stat-value"> {currentScore} </span>{' '}
+        </div>{' '}
         <div className="stat-item">
-          <span className="stat-label">High Score:</span>
-          <span className="stat-value">{highScore}</span>
-        </div>
+          <span className="stat-label"> High Score: </span>{' '}
+          <span className="stat-value"> {highScore} </span>{' '}
+        </div>{' '}
         <div className="stat-item">
-          <span className="stat-label">Time Left:</span>
-          <span className="stat-value">{timeLeft}s</span>
-        </div>
-      </div>
-
+          <span className="stat-label"> Time Left: </span>{' '}
+          <span className="stat-value"> {timeLeft}s </span>{' '}
+        </div>{' '}
+      </div>{' '}
       <div className="game-area">
+        {' '}
         {!gameStarted ? (
           <button className="start-btn" onClick={startGame}>
-            Start Game
+            Start Game{' '}
           </button>
         ) : (
           <button
@@ -125,24 +124,23 @@ function ClickSpeedGame() {
             onClick={handleClick}
             disabled={!gameActive}
           >
-            {gameActive ? 'CLICK ME!' : 'Game Over!'}
+            {gameActive ? 'CLICK ME!' : 'Game Over!'}{' '}
           </button>
-        )}
-      </div>
-
+        )}{' '}
+      </div>{' '}
       {gameStarted && !gameActive && (
         <div className="game-results">
           <div className="final-score">
-            <h4>Final Score: {currentScore}</h4>
+            <h4> Final Score: {currentScore} </h4>{' '}
             {currentScore === highScore && currentScore > 0 && (
-              <p className="new-record">🎉 New High Score!</p>
-            )}
-          </div>
+              <p className="new-record"> 🎉New High Score! </p>
+            )}{' '}
+          </div>{' '}
           <button className="play-again-btn" onClick={playAgain}>
-            Play Again
-          </button>
+            Play Again{' '}
+          </button>{' '}
         </div>
-      )}
+      )}{' '}
     </div>
   );
 }

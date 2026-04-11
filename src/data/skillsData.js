@@ -1,0 +1,32 @@
+export const skills = [
+  { name: 'Critical and Quick Thinking', category: 'Soft' },
+  { name: 'Analysis, Decision Making and Problem Solving', category: 'Soft' },
+  { name: 'Ability to Learn and Work Under Pressure', category: 'Soft' },
+  { name: 'Creativity', category: 'Soft' },
+  { name: 'Teamwork and Collaboration', category: 'Soft' },
+  { name: 'Communication and Presentation', category: 'Soft' },
+  { name: 'Adaptability and Flexibility', category: 'Soft' },
+  { name: 'Time Management', category: 'Soft' },
+  { name: 'Professionalism', category: 'Soft' },
+  { name: 'Planning and Organization', category: 'Soft' },
+  {
+    name: 'OOP Languages:\nC# (Proficient)\nJava (Proficient)',
+    category: 'Technical',
+  },
+  {
+    name: 'Other Languages:\nJavaScript (Intermediate)\nC++ (Intermediate)\nPython (Intermediate)',
+    category: 'Technical',
+  },
+  { name: 'Data Structures & Algorithms', category: 'Technical' },
+  { name: 'REST APIs & Postman Testing Knowledge', category: 'Technical' },
+  { name: 'Backend Development Knowledge', category: 'Technical' },
+  {
+    name: 'Databases:\nSQLite\nOracle SQL\nMicrosoft SQL Server',
+    category: 'Technical',
+  },
+  { name: 'Generative AI Tools Proficiency', category: 'Technical' },
+  { name: 'Cloud & Deployment', category: 'Technical' },
+  { name: 'Frameworks:\n.NET Web API\nReact', category: 'Technical' },
+  { name: 'Tools:\nVisual Studio\nVS Code', category: 'Technical' },
+  { name: 'Version Control:\nGit\nGitHub', category: 'Technical' },
+];

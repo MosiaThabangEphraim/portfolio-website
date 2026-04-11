@@ -1,38 +1,43 @@
 import React, { useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Experience.css';
+import { experiences as experiencesData } from '../data/experienceData';
 
 function Experience() {
+  const location = useLocation();
   const [sortField, setSortField] = useState('date'); // 'date' | 'title'
   const [ascending, setAscending] = useState(false); // newest first by default
+  const [search, setSearch] = useState('');
 
-  const experiences = useMemo(
-    () => [
-      {
-        title:
-          'Teaching Assistant – Introduction to Computing and Programming with Python (CMPG111)',
-        organization:
-          'North-West University – School of Computer Science and Information Systems',
-        start: '2025-02',
-        end: '2025-06',
-        details:
-          'Assisting during practical sessions, Facilitating tutorial sessions, Invigilating during assessments, Evaluating, reviewing, moderating, marking and grading assessments, Contributing to course development.',
-      },
-      {
-        title:
-          'Teaching Assistant – User Interface Programming with C# (CMPG122)',
-        organization:
-          'North-West University – School of Computer Science and Information Systems',
-        start: '2025-07',
-        end: '2025-12',
-        details:
-          'Assisting during practical sessions, invigilating during assessments, Evaluating, reviewing, moderating, marking and grading assessments, Contributing to course development.',
-      },
-    ],
-    []
-  );
+  const experiences = useMemo(() => experiencesData, []);
+
+  React.useEffect(() => {
+    const searchTerm = location.state?.searchTerm;
+    if (typeof searchTerm === 'string' && searchTerm.trim().length > 0) {
+      setSearch(searchTerm);
+    }
+  }, [location.state]);
+
+  const filteredExperiences = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return experiences;
+    return experiences.filter((e) => {
+      return (
+        (e.title || '').toLowerCase().includes(q) ||
+        (e.organization || '').toLowerCase().includes(q) ||
+        (e.details || '').toLowerCase().includes(q) ||
+        String(e.start || '')
+          .toLowerCase()
+          .includes(q) ||
+        String(e.end || '')
+          .toLowerCase()
+          .includes(q)
+      );
+    });
+  }, [experiences, search]);
 
   const sorted = useMemo(() => {
-    const arr = [...experiences];
+    const arr = [...filteredExperiences];
     arr.sort((a, b) => {
       if (sortField === 'title') {
         const comp = a.title.localeCompare(b.title);
@@ -45,12 +50,21 @@ function Experience() {
       return ascending ? comp : -comp;
     });
     return arr;
-  }, [experiences, sortField, ascending]);
+  }, [filteredExperiences, sortField, ascending]);
 
   return (
     <div className="experience-container">
       <div className="section-heading"> Experience </div>
       <div className="controls-container">
+        <div className="control-group">
+          <label> Search </label>{' '}
+          <input
+            type="text"
+            placeholder="Search experience..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />{' '}
+        </div>{' '}
         <div className="control-group">
           <label> Sort By </label>{' '}
           <select
@@ -74,6 +88,7 @@ function Experience() {
             onClick={() => {
               setSortField('date');
               setAscending(false);
+              setSearch('');
             }}
           >
             Reset{' '}
@@ -99,14 +114,28 @@ function Experience() {
 }
 
 function formatMonthRange(start, end) {
-  const [sy, sm] = start.split('-').map((v) => parseInt(v, 10));
-  const [ey, em] = end.split('-').map((v) => parseInt(v, 10));
-  const fmt = (y, m) =>
-    new Date(y, m - 1, 1).toLocaleString(undefined, {
-      month: 'long',
-      year: 'numeric',
-    });
-  return `${fmt(sy, sm)} – ${fmt(ey, em)}`;
+  const parseDate = (value) => {
+    const parts = value.split('-');
+    return parts.length === 2
+      ? { year: parseInt(parts[0], 10), month: parseInt(parts[1], 10) }
+      : { year: parseInt(parts[0], 10), month: null };
+  };
+
+  const formatDate = ({ year, month }) =>
+    month
+      ? new Date(year, month - 1, 1).toLocaleString(undefined, {
+          month: 'long',
+          year: 'numeric',
+        })
+      : `${year}`;
+
+  const startDate = parseDate(start);
+  if (end === 'Current') {
+    return `${formatDate(startDate)} – Current`;
+  }
+
+  const endDate = parseDate(end);
+  return `${formatDate(startDate)} – ${formatDate(endDate)}`;
 }
 
 export default Experience;

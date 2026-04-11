@@ -1,44 +1,22 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Awards.css';
-import fnasAwardImg from '../assets/fnas-deans-award.jpg';
-import goldenKeyPDF from '../assets/golden-key-certificate.pdf';
+import { awards as awardsData } from '../data/awardsData';
 
 function Awards() {
+  const location = useLocation();
   const [sortField, setSortField] = useState('year'); // 'year' | 'title'
   const [ascending, setAscending] = useState(false); // default: newest first
+  const [search, setSearch] = useState('');
 
-  const awards = useMemo(
-    () => [
-      {
-        title: 'GradStar 2025 Top 100',
-        organization: 'GradStar Awards',
-        year: 2025,
-        description:
-          'GradStar awards recognizes the Top 100 students across the country based on leadership qualities and readiness for the workplace.',
-        certificateUrl: '#',
-        certificateLabel: 'Certificate Coming Soon',
-      },
-      {
-        title: "Faculty of Natural and Agricultural Sciences Dean's Award",
-        organization: 'North-West University, Vanderbijlpark Campus',
-        year: 2025,
-        description:
-          'Presented to the top two performing students in each school in the faculty per campus. Recognizes my outstanding academic performance for the 2024 academic year with a year average of 86%.',
-        certificateUrl: fnasAwardImg,
-        certificateLabel: 'Download Certificate (Image)',
-      },
-      {
-        title: 'Golden Key Honour Society Member',
-        organization: 'Golden Key International Honour Society',
-        year: 2025,
-        description:
-          'Recognizes top-performing students within the top 15% in their field. An invitation-only society celebrating academic excellence, leadership, and service.',
-        certificateUrl: goldenKeyPDF,
-        certificateLabel: 'Download Certificate (PDF)',
-      },
-    ],
-    []
-  );
+  const awards = useMemo(() => awardsData, []);
+
+  useEffect(() => {
+    const searchTerm = location.state?.searchTerm;
+    if (typeof searchTerm === 'string' && searchTerm.trim().length > 0) {
+      setSearch(searchTerm.split(' - ')[0]);
+    }
+  }, [location.state]);
 
   const sortedAwards = useMemo(() => {
     const items = [...awards];
@@ -54,10 +32,34 @@ function Awards() {
     return items;
   }, [awards, sortField, ascending]);
 
+  const filteredAwards = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return sortedAwards;
+    return sortedAwards.filter((award) => {
+      return (
+        (award.title || '').toLowerCase().includes(q) ||
+        (award.organization || '').toLowerCase().includes(q) ||
+        (award.description || '').toLowerCase().includes(q) ||
+        String(award.year || '')
+          .toLowerCase()
+          .includes(q)
+      );
+    });
+  }, [sortedAwards, search]);
+
   return (
     <div className="awards-container">
       <div className="section-heading"> Awards </div>
       <div className="controls-container">
+        <div className="control-group">
+          <label> Search </label>{' '}
+          <input
+            type="text"
+            placeholder="Search awards..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />{' '}
+        </div>{' '}
         <div className="control-group">
           <label> Sort By </label>{' '}
           <select
@@ -81,13 +83,14 @@ function Awards() {
             onClick={() => {
               setSortField('year');
               setAscending(false);
+              setSearch('');
             }}
           >
             Reset{' '}
           </button>{' '}
         </div>{' '}
       </div>
-      {sortedAwards.map((award, idx) => (
+      {filteredAwards.map((award, idx) => (
         <div key={idx} className="award-block">
           <div className="award-field">
             <div className="award-label"> Title </div>{' '}
@@ -111,19 +114,21 @@ function Awards() {
               {award.description}{' '}
             </div>{' '}
           </div>{' '}
-          <div className="award-field">
-            <div className="award-label"> Download Certificate </div>{' '}
-            <div className="award-value">
-              <a
-                href={award.certificateUrl}
-                className="award-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {award.certificateLabel}{' '}
-              </a>{' '}
-            </div>{' '}
-          </div>{' '}
+          {award.certificateUrl && award.certificateUrl !== '#' && (
+            <div className="award-field">
+              <div className="award-label"> Certificate </div>{' '}
+              <div className="award-value">
+                <a
+                  href={award.certificateUrl}
+                  className="award-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {award.certificateLabel}{' '}
+                </a>{' '}
+              </div>{' '}
+            </div>
+          )}{' '}
         </div>
       ))}{' '}
     </div>

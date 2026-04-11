@@ -1,45 +1,64 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Projects.css';
+import { projects as projectsData } from '../data/projectsData';
 
 function Projects() {
+  const location = useLocation();
+  const [search, setSearch] = useState('');
   const [ascending, setAscending] = useState(true);
 
-  const projects = useMemo(
-    () => [
-      {
-        title: 'Portfolio Website',
-        description:
-          'Designed and developed a personal website to showcase my profile, studies, skills, projects, experience, awards, and certificates. Built using HTML, CSS, JavaScript, and React for a responsive and interactive user experience. Implemented features such as smooth navigation, stylish tabs, animations, transitions, and downloadable resources. Optimized layout and design for clarity, accessibility, and professional presentation.',
-      },
-      {
-        title: 'Task Management Application',
-        description:
-          'Developed a cross-platform (Android, IOS, Windows)  task management application using .NET MAUI and Supabase PostgreSQL for cloud storage. Implemented features for creating, editing, and deleting tasks, setting reminders, participating in task collaborations, and implemented gamification through achievement badges. Optimized user interface for smooth navigation and multi-device access.',
-      },
-    ],
-    []
-  );
+  const projects = useMemo(() => projectsData, []);
+
+  useEffect(() => {
+    const searchTerm = location.state?.searchTerm;
+    if (typeof searchTerm === 'string' && searchTerm.trim().length > 0) {
+      setSearch(searchTerm);
+    }
+  }, [location.state]);
 
   const sorted = useMemo(() => {
-    const arr = [...projects];
-    arr.sort((a, b) => {
-      const comp = a.title.localeCompare(b.title);
-      return ascending ? comp : -comp;
-    });
+    const q = search.trim().toLowerCase();
+    const arr = [...projects]
+      .filter((p) =>
+        q
+          ? p.title.toLowerCase().includes(q) ||
+            p.description.toLowerCase().includes(q)
+          : true
+      )
+      .sort((a, b) => {
+        const comp = a.title.localeCompare(b.title);
+        return ascending ? comp : -comp;
+      });
     return arr;
-  }, [projects, ascending]);
+  }, [projects, search, ascending]);
 
   return (
     <div className="projects-container">
       <div className="section-heading"> Projects </div>
 
       <div className="controls-container">
+        <input
+          type="text"
+          placeholder="Search projects..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="search-input"
+        />
         <div className="control-group">
           <label> Sort by Title </label>
           <button onClick={() => setAscending(!ascending)}>
             {ascending ? 'Ascending' : 'Descending'}
           </button>
         </div>
+        <button
+          onClick={() => {
+            setSearch('');
+            setAscending(true);
+          }}
+        >
+          Reset
+        </button>
       </div>
 
       <div className="projects-list">
