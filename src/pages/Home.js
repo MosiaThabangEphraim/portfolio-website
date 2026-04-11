@@ -124,7 +124,9 @@ function Home() {
         return;
       }
 
-      navigate(item.path, { state: { searchTerm: item.label } });
+      navigate(item.path, {
+        state: { searchTerm: item.searchTerm || item.label },
+      });
       return;
     }
   };
