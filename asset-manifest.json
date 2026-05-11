@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/portfolio-website/static/css/main.b062fa43.css",
-    "main.js": "/portfolio-website/static/js/main.2ba5160e.js",
+    "main.css": "/portfolio-website/static/css/main.3ac79e4d.css",
+    "main.js": "/portfolio-website/static/js/main.1d806fa8.js",
     "static/js/453.635f5f07.chunk.js": "/portfolio-website/static/js/453.635f5f07.chunk.js",
     "static/media/GradStar Top 100.jpeg": "/portfolio-website/static/media/GradStar Top 100.d6f4896e7cd2bbd9e6d1.jpeg",
     "static/media/fnas-deans-award.jpg": "/portfolio-website/static/media/fnas-deans-award.afc136e5561b67a1d851.jpg",
     "static/media/AcademicRecord_54607949.pdf": "/portfolio-website/static/media/AcademicRecord_54607949.9afaf1953e2da2ebf93f.pdf",
     "static/media/golden-key-certificate.pdf": "/portfolio-website/static/media/golden-key-certificate.4e066a7a4d34195756c4.pdf",
-    "static/media/MOSIA THABANG.pdf": "/portfolio-website/static/media/MOSIA THABANG.1e1a10614f89d6bc6593.pdf",
+    "static/media/MOSIA THABANG.pdf": "/portfolio-website/static/media/MOSIA THABANG.c71d4a94c285f47928f1.pdf",
     "static/media/profile.jpg": "/portfolio-website/static/media/profile.cce4c0718b0b298217e6.jpg",
     "index.html": "/portfolio-website/index.html",
-    "main.b062fa43.css.map": "/portfolio-website/static/css/main.b062fa43.css.map",
-    "main.2ba5160e.js.map": "/portfolio-website/static/js/main.2ba5160e.js.map",
+    "main.3ac79e4d.css.map": "/portfolio-website/static/css/main.3ac79e4d.css.map",
+    "main.1d806fa8.js.map": "/portfolio-website/static/js/main.1d806fa8.js.map",
     "453.635f5f07.chunk.js.map": "/portfolio-website/static/js/453.635f5f07.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b062fa43.css",
-    "static/js/main.2ba5160e.js"
+    "static/css/main.3ac79e4d.css",
+    "static/js/main.1d806fa8.js"
   ]
 }
