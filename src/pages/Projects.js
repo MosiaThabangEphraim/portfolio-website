@@ -64,7 +64,10 @@ function Projects() {
       <div className="projects-list">
         {sorted.map((p, i) => (
           <div key={i} className="project-card">
-            <div className="project-title"> {p.title} </div>
+            <div className="project-title">
+              <span className="project-year">{p.year}</span>
+              {p.title}
+            </div>
             <div className="project-description"> {p.description} </div>
           </div>
         ))}

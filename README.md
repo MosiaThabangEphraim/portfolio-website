@@ -4,17 +4,20 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 
 ## 🚀 Live Demo
 
-[View Portfolio](https://mosiathabangephraim.github.io/portfolio-website)
+[View Portfolio](https://mosiathabangephraim.github.io/portfolio-website/)
 
 ## 📋 Features
 
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Interactive Navigation**: Smooth routing between different sections
 - **Contact Form**: Integrated EmailJS for direct communication
-- **Downloadable Resume**: PDF resume available for download
-- **Academic Showcase**: Detailed coursework information and achievements. PDF Academic Record available for download.
+- **Downloadable CV**: PDF CV available for download
+- **Academic Record Download**: Academic record PDF available for download from Coursework
+- **Site-wide Search**: Search across pages, courses, awards, experience, projects, skills, and links
+- **Interactive Game**: Click speed challenge for user engagement
+- **Academic Showcase**: Detailed coursework information and achievements
 - **Project Portfolio**: Showcase of development projects
-- **Skills Display**: Soft skills Technical skills
+- **Skills Display**: Soft skills and technical skills
 - **Awards & Certificates**: Academic achievements and certifications
 - **AI Chatbot powered by Chatbase**: AI chatbot integrated using Chatbase to provide real-time responses, enhance user interaction, and deliver intelligent, automated support based on trained data.
 
@@ -24,6 +27,7 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 - **Styling**: Custom CSS with animations and responsive design
 - **Routing**: React Router for single-page application navigation
 - **Email Service**: EmailJS for contact form functionality
+- **Chatbot**: Chatbase AI widget
 - **Build Tool**: Create React App
 - **Version Control**: Git & GitHub
 
@@ -38,6 +42,13 @@ portfolio/
 ├── src/
 │   ├── components/
 │   │   └── ClickSpeedGame.js
+│   ├── data/
+│   │   ├── awardsData.js
+│   │   ├── coursesData.js
+│   │   ├── experienceData.js
+│   │   ├── linksData.js
+│   │   ├── projectsData.js
+│   │   └── skillsData.js
 │   ├── pages/
 │   │   ├── Home.js
 │   │   ├── Education.js
@@ -46,13 +57,12 @@ portfolio/
 │   │   ├── Skills.js
 │   │   ├── Awards.js
 │   │   ├── Projects.js
-│   │   ├── Certificates.js
 │   │   ├── Links.js
 │   │   └── Contact.js
 │   ├── assets/
 │   │   ├── profile.jpg
-│   │   ├── RESUME.pdf
-│   │   └── certificates/
+│   │   ├── MOSIA THABANG.pdf
+│   │   └── AcademicRecord_54607949.pdf
 │   └── App.js
 └── README.md
 ```
@@ -115,7 +125,7 @@ portfolio/
 ### Personal Information
 - Update personal details in `src/pages/Home.js`
 - Replace `src/assets/profile.jpg` with your photo
-- Update `src/assets/RESUME.pdf` with your resume
+- Update `src/assets/MOSIA THABANG.pdf` with your CV
 
 ### Styling
 - Modify `src/App.css` for global styles
