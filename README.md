@@ -14,7 +14,6 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 - **Downloadable CV**: PDF CV available for download
 - **Academic Record Download**: Academic record PDF available for download from Coursework
 - **Site-wide Search**: Search across pages, courses, awards, experience, projects, skills, and links
-- **Interactive Game**: Click speed challenge for user engagement
 - **Academic Showcase**: Detailed coursework information and achievements
 - **Project Portfolio**: Showcase of development projects
 - **Skills Display**: Soft skills and technical skills
