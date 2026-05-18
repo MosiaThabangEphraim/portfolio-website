@@ -162,10 +162,6 @@ The portfolio is fully responsive and optimized for:
 - **LinkedIn**: [Thabang Mosia](https://www.linkedin.com/in/thabang-mosia-7340742ab)
 - **GitHub**: [MosiaThabangEphraim](https://github.com/MosiaThabangEphraim)
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 🙏 Acknowledgments
 
 - Built with [Create React App](https://github.com/facebook/create-react-app)
