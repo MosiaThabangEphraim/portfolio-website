@@ -171,6 +171,6 @@ This project is open source and available under the [MIT License](LICENSE).
 - Built with [Create React App](https://github.com/facebook/create-react-app)
 - Icons and styling inspired by modern web design principles
 - Special thanks to the React community for excellent documentation
-- AI assisted tools: Claude were used occasionally during development for code review, debugging guidance, and productivity improvements. All architecture, implementation decisions, and final code integration were completed by the author.
+- AI assisted tool: Claude were used occasionally during development for code review, debugging guidance, and productivity improvements. All architecture, implementation decisions, and final code integration were completed by the author.
 
 ---
