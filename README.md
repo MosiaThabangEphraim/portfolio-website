@@ -14,7 +14,6 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 - **Downloadable CV**: PDF CV available for download
 - **Academic Record Download**: Academic record PDF available for download from Coursework
 - **Site-wide Search**: Search across pages, courses, awards, experience, projects, skills, and links
-- **Interactive Game**: Click speed challenge for user engagement
 - **Academic Showcase**: Detailed coursework information and achievements
 - **Project Portfolio**: Showcase of development projects
 - **Skills Display**: Soft skills and technical skills
@@ -163,16 +162,11 @@ The portfolio is fully responsive and optimized for:
 - **LinkedIn**: [Thabang Mosia](https://www.linkedin.com/in/thabang-mosia-7340742ab)
 - **GitHub**: [MosiaThabangEphraim](https://github.com/MosiaThabangEphraim)
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 🙏 Acknowledgments
 
 - Built with [Create React App](https://github.com/facebook/create-react-app)
 - Icons and styling inspired by modern web design principles
 - Special thanks to the React community for excellent documentation
-
+- AI assisted tool: Claude were used occasionally during development for code review, debugging guidance, and productivity improvements.
+  
 ---
-
-**Thabang Mosia** - BSc Information Technology Student | Software Developer | Future Tech Innovator
