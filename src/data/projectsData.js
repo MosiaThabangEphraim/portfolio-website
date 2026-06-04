@@ -16,5 +16,6 @@ export const projects = [
     title: 'SecureBank',
     description:
       'Full-stack digital banking simulation web app with a customizable fraud detection engine, where users define their own risk rules scored against every transaction in real time. Built with React, .NET Core Web API, and Supabase. Features also include multi-account management, card controls, analytics, and live alerts. Fully deployed with Render (frontend) and Vercel (backend).',
+    link: 'https://securebank-d4vt81zo5-mosiathabangephraims-projects.vercel.app',
   },
 ];

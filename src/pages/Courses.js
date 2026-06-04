@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Courses.css'; // Link to your separate CSS
-import academicRecordPDF from '../assets/AcademicRecord_54607949.pdf';
+import academicRecordPDF from '../assets/Full Transcript - Thabang Mosia.pdf';
 
 const Courses = () => {
   const location = useLocation();

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import profilePic from '../assets/profile.jpg';
-import resumePDF from '../assets/MOSIA THABANG.pdf';
+import resumePDF from '../assets/CV- Thabang Mosia.pdf';
 import { awards } from '../data/awardsData';
 import {
   yearOneCourses,
