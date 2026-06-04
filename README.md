@@ -39,8 +39,6 @@ portfolio/
 │   ├── manifest.json
 │   └── favicon.ico
 ├── src/
-│   ├── components/
-│   │   └── ClickSpeedGame.js
 │   ├── data/
 │   │   ├── awardsData.js
 │   │   ├── coursesData.js
