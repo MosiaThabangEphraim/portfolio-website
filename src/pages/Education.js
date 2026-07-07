@@ -10,7 +10,7 @@ function Education() {
           Bachelor of Science in Information Technology
         </h3>
         <p className="education-subtitle">
-          Computer Sciennce an Information Sytems
+          Computer Science and Information Systems
         </p>
         <p className="education-school">North-West University</p>
         <p className="education-duration">Year of Study: Final (2024 - 2026)</p>

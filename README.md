@@ -74,40 +74,44 @@ portfolio/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/portfolio.git
    cd portfolio
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up EmailJS (Optional)**
-   
+
    For the contact form to work:
-   
+
    a. Create an account at [EmailJS](https://www.emailjs.com/)
-   
+
    b. Create a service and template with variables: `from_name`, `reply_to`, `subject`, `message`, `to_email`
-   
+
    c. Create a `.env` file in the project root:
+
    ```env
    REACT_APP_EMAILJS_SERVICE=your_service_id
    REACT_APP_EMAILJS_TEMPLATE=your_template_id
    REACT_APP_EMAILJS_PUBLIC=your_public_key
    ```
-   
+
    d. Restart the development server after creating `.env`
 
 4. **Start the development server**
+
    ```bash
    npm start
    ```
 
 5. **Open your browser**
-   
+
    Navigate to [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
 ## 📜 Available Scripts
@@ -120,16 +124,19 @@ portfolio/
 ## 🎨 Customization
 
 ### Personal Information
+
 - Update personal details in `src/pages/Home.js`
 - Replace `src/assets/profile.jpg` with your photo
 - Update `src/assets/MOSIA THABANG.pdf` with your CV
 
 ### Styling
+
 - Modify `src/App.css` for global styles
 - Update individual page CSS files for specific styling
 - Color scheme can be changed by updating CSS variables
 
 ### Content
+
 - Add/remove pages in `src/pages/`
 - Update course information in `src/pages/Courses.js`
 - Modify project showcase in `src/pages/Projects.js`
@@ -137,6 +144,7 @@ portfolio/
 ## 📱 Responsive Design
 
 The portfolio is fully responsive and optimized for:
+
 - **Desktop**: Full navigation and layout
 - **Tablet**: Adapted navigation and spacing
 - **Mobile**: Stacked layout with touch-friendly navigation
@@ -144,12 +152,14 @@ The portfolio is fully responsive and optimized for:
 ## 🚀 Deployment
 
 ### GitHub Pages
+
 1. Build the project: `npm run build`
 2. Push to GitHub repository
 3. Enable GitHub Pages in repository settings
 4. Select source branch (usually `main`)
 
 ### Netlify/Vercel
+
 1. Connect your GitHub repository
 2. Deploy automatically on every push
 3. Custom domain support available
@@ -166,5 +176,5 @@ The portfolio is fully responsive and optimized for:
 - Icons and styling inspired by modern web design principles
 - Special thanks to the React community for excellent documentation
 - AI assisted tool: Claude were used occasionally during development for code review, debugging guidance, and productivity improvements.
-  
+
 ---

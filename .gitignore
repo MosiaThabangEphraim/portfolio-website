@@ -139,3 +139,7 @@ tramp
 *.old
 *.orig
 *.tmp
+# Personal documents in assets
+src/assets/*.pdf
+src/assets/*.jpeg
+src/assets/*.jpg

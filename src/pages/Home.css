@@ -67,7 +67,9 @@
   color: #000000;
   font-size: 0.97rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .search-bar:focus {
@@ -113,7 +115,9 @@
   font-weight: 700;
   text-decoration: none;
   border: 1px solid #000000;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .resume-button:hover {

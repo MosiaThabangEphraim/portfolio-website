@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import profilePic from '../assets/profile.jpg';
-import resumePDF from '../assets/CV- Thabang Mosia.pdf';
 import { awards } from '../data/awardsData';
 import {
   yearOneCourses,
@@ -162,15 +161,6 @@ function Home() {
                 </ul>
               )}
             </div>
-            <a
-              href={resumePDF}
-              className="resume-button"
-              target="_blank"
-              rel="noopener noreferrer"
-              download="MOSIA_THABANG_CV.pdf"
-            >
-              Download CV
-            </a>
           </div>
         </div>
         <div className="hero-avatar">

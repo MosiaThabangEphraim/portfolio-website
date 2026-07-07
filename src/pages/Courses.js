@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Courses.css'; // Link to your separate CSS
-import academicRecordPDF from '../assets/Full Transcript - Thabang Mosia.pdf';
 
 const Courses = () => {
   const location = useLocation();
@@ -147,25 +146,25 @@ const Courses = () => {
     {
       module: 'Databases',
       code: 'CMPG311',
-      result: 'In Progress',
+      result: 'Distinction',
       type: 'Core',
     },
     {
       module: 'Decision Support Systems 1',
       code: 'CMPG312',
-      result: 'In Progress',
+      result: 'Distinction',
       type: 'Core',
     },
     {
       module: 'Artificial Intelligence',
       code: 'CMPG313',
-      result: 'In Progress',
+      result: 'Distinction',
       type: 'Core',
     },
     {
       module: 'Computer Networks',
       code: 'CMPG315',
-      result: 'In Progress',
+      result: 'Distinction',
       type: 'Core',
     },
     {
@@ -266,16 +265,6 @@ const Courses = () => {
   return (
     <div className="course-container">
       <div className="section-heading"> Coursework </div>{' '}
-      <div className="overall-average">
-        <a
-          href={academicRecordPDF}
-          className="award-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Download Academic Record{' '}
-        </a>{' '}
-      </div>{' '}
       <div className="controls-container">
         <div className="control-group">
           <label> Search Module </label>{' '}
@@ -355,7 +344,7 @@ const Courses = () => {
         </>
       )}{' '}
       <div className="overall-average">
-        The current overall average for the degree is 82%.
+        The current overall average for the degree is 83%.
       </div>
     </div>
   );
