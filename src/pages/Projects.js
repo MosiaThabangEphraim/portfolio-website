@@ -69,16 +69,28 @@ function Projects() {
               {p.title}
             </div>
             <div className="project-description"> {p.description} </div>
-            {p.link && (
-              <a
-                href={p.link}
-                className="project-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Live Project
-              </a>
-            )}
+            <div className="project-actions">
+              {p.link && (
+                <a
+                  href={p.link}
+                  className="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Live Project
+                </a>
+              )}
+              {p.repo && (
+                <a
+                  href={p.repo}
+                  className="project-repo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View GitHub Repo
+                </a>
+              )}
+            </div>
           </div>
         ))}
       </div>

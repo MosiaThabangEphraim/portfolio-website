@@ -161,6 +161,9 @@ function Home() {
                 </ul>
               )}
             </div>
+            <a className="resume-button" href="/resume.pdf" download>
+              Download CV
+            </a>
           </div>
         </div>
         <div className="hero-avatar">
@@ -196,6 +199,7 @@ function Home() {
       </div>
 
       <div className="home-about">
+        <h2 className="about-heading">About Me</h2>
         <p>
           Final year BSc Information Technology student with a proven track
           record of strong and consistent academic excellence. Demonstrates a

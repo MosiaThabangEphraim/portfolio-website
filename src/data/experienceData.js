@@ -8,4 +8,12 @@ export const experiences = [
     details:
       'Assisted in Python and C# modules by facilitating practicals and tutorials, invigilation, grading code submissions, and providing administrative support. Supported 200+ students per semester, reviewed 500+ codes assessing logic, correctness, and code quality, and provided structured feedback to improve student performance.',
   },
+  {
+    title: 'Supplemental Instructor',
+    organization: 'North-West University',
+    start: '2026',
+    end: 'Current',
+    details:
+      'Providing academic support to students in a C++ programming module through supplemental instruction sessions, assisting with understanding of programming concepts.',
+  },
 ];

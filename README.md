@@ -175,6 +175,6 @@ The portfolio is fully responsive and optimized for:
 - Built with [Create React App](https://github.com/facebook/create-react-app)
 - Icons and styling inspired by modern web design principles
 - Special thanks to the React community for excellent documentation
-- AI assisted tool: Claude were used occasionally during development for code review, debugging guidance, and productivity improvements.
+- AI-assisted tool: Claude was used occasionally during development for code review, debugging guidance, and productivity improvements.
 
 ---
