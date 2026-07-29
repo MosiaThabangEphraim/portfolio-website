@@ -161,7 +161,11 @@ function Home() {
                 </ul>
               )}
             </div>
-            <a className="resume-button" href="/resume.pdf" download>
+            <a
+              className="resume-button"
+              href={process.env.PUBLIC_URL + '/resume.pdf'}
+              download
+            >
               Download CV
             </a>
           </div>
