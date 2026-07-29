@@ -170,11 +170,10 @@ The portfolio is fully responsive and optimized for:
 - **LinkedIn**: [Thabang Mosia](https://www.linkedin.com/in/thabang-mosia-7340742ab)
 - **GitHub**: [MosiaThabangEphraim](https://github.com/MosiaThabangEphraim)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with [Create React App](https://github.com/facebook/create-react-app)
 - Icons and styling inspired by modern web design principles
 - Special thanks to the React community for excellent documentation
-- AI-assisted tool: Claude was used occasionally during development for code review, debugging guidance, and productivity improvements.
 
 ---
