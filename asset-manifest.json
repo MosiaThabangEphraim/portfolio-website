@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-website/static/css/main.dcf9b064.css",
-    "main.js": "/portfolio-website/static/js/main.8e77e146.js",
+    "main.js": "/portfolio-website/static/js/main.94cc5001.js",
     "static/js/453.635f5f07.chunk.js": "/portfolio-website/static/js/453.635f5f07.chunk.js",
     "static/media/GradStar Top 100.jpeg": "/portfolio-website/static/media/GradStar Top 100.d6f4896e7cd2bbd9e6d1.jpeg",
     "static/media/fnas-deans-award.jpg": "/portfolio-website/static/media/fnas-deans-award.afc136e5561b67a1d851.jpg",
@@ -9,11 +9,11 @@
     "static/media/profile.jpg": "/portfolio-website/static/media/profile.cce4c0718b0b298217e6.jpg",
     "index.html": "/portfolio-website/index.html",
     "main.dcf9b064.css.map": "/portfolio-website/static/css/main.dcf9b064.css.map",
-    "main.8e77e146.js.map": "/portfolio-website/static/js/main.8e77e146.js.map",
+    "main.94cc5001.js.map": "/portfolio-website/static/js/main.94cc5001.js.map",
     "453.635f5f07.chunk.js.map": "/portfolio-website/static/js/453.635f5f07.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dcf9b064.css",
-    "static/js/main.8e77e146.js"
+    "static/js/main.94cc5001.js"
   ]
 }
