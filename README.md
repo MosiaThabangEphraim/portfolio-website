@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 
 ## 🚀 Live Demo
 
-[View Portfolio](https://mosiathabangephraim.github.io/portfolio-website/)
+# [View Portfolio](https://mosiathabangephraim.github.io/portfolio-website/)
 
 ## 📋 Features
 
@@ -12,7 +12,6 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 - **Interactive Navigation**: Smooth routing between different sections
 - **Contact Form**: Integrated EmailJS for direct communication
 - **Downloadable CV**: PDF CV available for download
-- **Academic Record Download**: Academic record PDF available for download from Coursework
 - **Site-wide Search**: Search across pages, courses, awards, experience, projects, skills, and links
 - **Academic Showcase**: Detailed coursework information and achievements
 - **Project Portfolio**: Showcase of development projects
@@ -29,6 +28,17 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 - **Chatbot**: Chatbase AI widget
 - **Build Tool**: Create React App
 - **Version Control**: Git & GitHub
+
+## The portfolio consists of the following sections:
+**Home**
+**Education**
+**Coursework**
+**Experience**
+**Skills**
+**Awards**
+**Projects**
+**Links**
+**Contact**
 
 ## 📁 Project Structure
 
