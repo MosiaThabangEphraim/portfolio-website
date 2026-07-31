@@ -30,15 +30,15 @@ A modern, responsive portfolio website showcasing my skills, projects, and acade
 - **Version Control**: Git & GitHub
 
 ## The portfolio consists of the following sections:
-**Home**
-**Education**
-**Coursework**
-**Experience**
-**Skills**
-**Awards**
-**Projects**
-**Links**
-**Contact**
+- **Home**
+- **Education**
+- **Coursework**
+- **Experience**
+- **Skills**
+- **Awards**
+- **Projects**
+- **Links**
+- **Contact**
 
 ## 📁 Project Structure
 
