@@ -57,9 +57,10 @@ portfolio/
 │   │   ├── Links.js
 │   │   └── Contact.js
 │   ├── assets/
-│   │   ├── profile.jpg
-│   │   ├── MOSIA THABANG.pdf
-│   │   └── AcademicRecord_54607949.pdf
+│   │   ├── GradStar Top 100.jpeg
+│   │   ├── fnas-deans-award.jpg
+│   │   ├── golden-key-certificate.pdf
+        └──profile.jpg
 │   └── App.js
 └── README.md
 ```
