@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/portfolio-website/static/css/main.dcf9b064.css",
-    "main.js": "/portfolio-website/static/js/main.94cc5001.js",
+    "main.css": "/portfolio-website/static/css/main.1f51d1d9.css",
+    "main.js": "/portfolio-website/static/js/main.7d692bae.js",
     "static/js/453.635f5f07.chunk.js": "/portfolio-website/static/js/453.635f5f07.chunk.js",
     "static/media/GradStar Top 100.jpeg": "/portfolio-website/static/media/GradStar Top 100.d6f4896e7cd2bbd9e6d1.jpeg",
     "static/media/fnas-deans-award.jpg": "/portfolio-website/static/media/fnas-deans-award.afc136e5561b67a1d851.jpg",
     "static/media/golden-key-certificate.pdf": "/portfolio-website/static/media/golden-key-certificate.4e066a7a4d34195756c4.pdf",
-    "static/media/profile.jpg": "/portfolio-website/static/media/profile.cce4c0718b0b298217e6.jpg",
+    "static/media/profile.jpeg": "/portfolio-website/static/media/profile.3d7c53b97bb544d4d8ff.jpeg",
     "index.html": "/portfolio-website/index.html",
-    "main.dcf9b064.css.map": "/portfolio-website/static/css/main.dcf9b064.css.map",
-    "main.94cc5001.js.map": "/portfolio-website/static/js/main.94cc5001.js.map",
+    "main.1f51d1d9.css.map": "/portfolio-website/static/css/main.1f51d1d9.css.map",
+    "main.7d692bae.js.map": "/portfolio-website/static/js/main.7d692bae.js.map",
     "453.635f5f07.chunk.js.map": "/portfolio-website/static/js/453.635f5f07.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dcf9b064.css",
-    "static/js/main.94cc5001.js"
+    "static/css/main.1f51d1d9.css",
+    "static/js/main.7d692bae.js"
   ]
 }
