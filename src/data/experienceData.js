@@ -1,5 +1,13 @@
 export const experiences = [
   {
+    title: 'Software Engineer',
+    organization: 'Investec',
+    start: '2027',
+    end: 'Current',
+    details:
+      'Tech Graduate Programme 2027. Permanent placement as a Software Engineer in Corporate and Investment Banking.',
+  },
+  {
     title: 'Student Assistant',
     organization:
       'North-West University – School of Computer Science and Information Systems',

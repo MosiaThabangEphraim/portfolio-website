@@ -1,32 +1,104 @@
-export const skills = [
-  { name: 'Critical and Quick Thinking', category: 'Soft' },
-  { name: 'Analysis, Decision Making and Problem Solving', category: 'Soft' },
-  { name: 'Ability to Learn and Work Under Pressure', category: 'Soft' },
-  { name: 'Creativity', category: 'Soft' },
-  { name: 'Teamwork and Collaboration', category: 'Soft' },
-  { name: 'Communication and Presentation', category: 'Soft' },
-  { name: 'Adaptability and Flexibility', category: 'Soft' },
-  { name: 'Time Management', category: 'Soft' },
-  { name: 'Professionalism', category: 'Soft' },
-  { name: 'Planning and Organization', category: 'Soft' },
+// Skills grouped by area. `level` is optional and shown as a badge.
+export const skillGroups = [
   {
-    name: 'OOP Languages:\nC# (Proficient)\nJava (Proficient)',
     category: 'Technical',
+    title: 'Programming Languages',
+    icon: 'code',
+    skills: [
+      { name: 'C#', level: 'Proficient' },
+      { name: 'Java', level: 'Proficient' },
+      { name: 'JavaScript', level: 'Intermediate' },
+      { name: 'Python', level: 'Intermediate' },
+      { name: 'C++', level: 'Intermediate' },
+    ],
   },
   {
-    name: 'Other Languages:\nJavaScript (Intermediate)\nC++ (Intermediate)\nPython (Intermediate)',
     category: 'Technical',
+    title: 'Frameworks & Backend',
+    icon: 'layers',
+    skills: [
+      { name: '.NET Web API' },
+      { name: 'React' },
+      { name: 'REST APIs' },
+      { name: 'Backend Development' },
+    ],
   },
-  { name: 'Data Structures & Algorithms', category: 'Technical' },
-  { name: 'REST APIs & Postman Testing Knowledge', category: 'Technical' },
-  { name: 'Backend Development Knowledge', category: 'Technical' },
   {
-    name: 'Databases:\nSQLite\nOracle SQL\nMicrosoft SQL Server',
     category: 'Technical',
+    title: 'Databases',
+    icon: 'database',
+    skills: [
+      { name: 'Microsoft SQL Server' },
+      { name: 'Oracle SQL' },
+      { name: 'SQLite' },
+    ],
   },
-  { name: 'Generative AI Tools Proficiency', category: 'Technical' },
-  { name: 'Cloud & Deployment', category: 'Technical' },
-  { name: 'Frameworks:\n.NET Web API\nReact', category: 'Technical' },
-  { name: 'Tools:\nVisual Studio\nVS Code', category: 'Technical' },
-  { name: 'Version Control:\nGit\nGitHub', category: 'Technical' },
+  {
+    category: 'Technical',
+    title: 'Computer Science Foundations',
+    icon: 'cpu',
+    skills: [
+      { name: 'Object-Oriented Programming' },
+      { name: 'Data Structures & Algorithms' },
+    ],
+  },
+  {
+    category: 'Technical',
+    title: 'Tools & Version Control',
+    icon: 'tool',
+    skills: [
+      { name: 'Git' },
+      { name: 'GitHub' },
+      { name: 'Visual Studio' },
+      { name: 'VS Code' },
+      { name: 'Postman' },
+    ],
+  },
+  {
+    category: 'Technical',
+    title: 'Cloud & AI',
+    icon: 'cloud',
+    skills: [{ name: 'Cloud Deployment' }, { name: 'Generative AI Tools' }],
+  },
+  {
+    category: 'Soft',
+    title: 'Problem Solving',
+    icon: 'bulb',
+    skills: [
+      { name: 'Critical and Quick Thinking' },
+      { name: 'Analysis and Decision Making' },
+      { name: 'Problem Solving' },
+      { name: 'Creativity' },
+    ],
+  },
+  {
+    category: 'Soft',
+    title: 'Communication & Teamwork',
+    icon: 'users',
+    skills: [
+      { name: 'Teamwork and Collaboration' },
+      { name: 'Communication and Presentation' },
+    ],
+  },
+  {
+    category: 'Soft',
+    title: 'Work Ethic',
+    icon: 'target',
+    skills: [
+      { name: 'Learning and Working Under Pressure' },
+      { name: 'Adaptability and Flexibility' },
+      { name: 'Time Management' },
+      { name: 'Planning and Organisation' },
+      { name: 'Professionalism' },
+    ],
+  },
 ];
+
+// Flat list (used by the site-wide search on Home).
+export const skills = skillGroups.flatMap((group) =>
+  group.skills.map((skill) => ({
+    name: skill.name,
+    category: group.category,
+    group: group.title,
+  }))
+);

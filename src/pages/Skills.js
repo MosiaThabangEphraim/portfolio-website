@@ -1,15 +1,26 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Skills.css';
-import { skills as skillsData } from '../data/skillsData';
+import { skillGroups } from '../data/skillsData';
+import { Icon } from '../components/Icon';
+import {
+  EmptyState,
+  PageHeader,
+  ResetButton,
+  ResultCount,
+  SearchField,
+  Segmented,
+} from '../components/ui';
+
+const CATEGORIES = [
+  ['Technical', 'Technical skills'],
+  ['Soft', 'Soft skills'],
+];
 
 function Skills() {
   const location = useLocation();
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState(''); // '' | 'Soft' | 'Technical'
-  const [ascending, setAscending] = useState(true);
-
-  const skills = useMemo(() => skillsData, []);
 
   useEffect(() => {
     const searchTerm = location.state?.searchTerm;
@@ -18,87 +29,137 @@ function Skills() {
     }
   }, [location.state]);
 
-  const filtered = useMemo(() => {
+  // Groups to show, each with only the skills that match the search.
+  // Searching a group's name ("databases") shows the whole group.
+  const visibleGroups = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return skills
-      .filter((s) => (categoryFilter ? s.category === categoryFilter : true))
-      .filter((s) => (q ? s.name.toLowerCase().includes(q) : true))
-      .sort((a, b) => {
-        const comp = a.name.localeCompare(b.name);
-        return ascending ? comp : -comp;
-      });
-  }, [skills, search, categoryFilter, ascending]);
+    return skillGroups
+      .filter((g) => (categoryFilter ? g.category === categoryFilter : true))
+      .map((g) => {
+        if (!q || g.title.toLowerCase().includes(q)) return g;
+        return {
+          ...g,
+          skills: g.skills.filter((s) => s.name.toLowerCase().includes(q)),
+        };
+      })
+      .filter((g) => g.skills.length > 0);
+  }, [search, categoryFilter]);
 
-  const renderSkillName = (name) => {
-    if (typeof name !== 'string') return name;
-    const parts = name.split('\n');
-    if (parts.length <= 1) return name;
-
-    const [title, ...lines] = parts;
-    return (
-      <>
-        <span className="skill-title-line">{title}</span>
-        <span className="skill-sub-lines">{lines.join('\n')}</span>
-      </>
-    );
-  };
+  const skillCount = visibleGroups.reduce((n, g) => n + g.skills.length, 0);
+  const isDefault = !categoryFilter && !search;
 
   return (
-    <div className="skills-container">
-      <div className="section-heading"> Skills </div>{' '}
-      <div className="controls-container">
-        <div className="control-group">
-          <label> Search Skills </label>{' '}
-          <input
-            type="text"
-            placeholder="Search by name"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />{' '}
-        </div>{' '}
-        <div className="control-group">
-          <label> Filter by Category </label>{' '}
-          <select
-            value={categoryFilter}
-            onChange={(e) => setCategoryFilter(e.target.value)}
-          >
-            <option value=""> All </option> <option value="Soft"> Soft </option>{' '}
-            <option value="Technical"> Technical </option>{' '}
-          </select>{' '}
-        </div>{' '}
-        <div className="control-group">
-          <label> Sort by Name </label>{' '}
-          <button onClick={() => setAscending(!ascending)}>
-            {' '}
-            {ascending ? 'Ascending' : 'Descending'}{' '}
-          </button>{' '}
-        </div>{' '}
-        <div className="control-group">
-          <label> Reset </label>{' '}
-          <button
+    <div className="ui-page">
+      <PageHeader
+        eyebrow="Toolkit"
+        title="Skills"
+        subtitle="The languages, tools and working skills I bring to a team."
+      />
+
+      <div className="ui-toolbar">
+        <SearchField
+          value={search}
+          onChange={setSearch}
+          placeholder="Search skills, languages, tools…"
+          label="Search skills"
+        />
+        <Segmented
+          label="Category"
+          options={[
+            ['', 'All'],
+            ['Technical', 'Technical'],
+            ['Soft', 'Soft'],
+          ]}
+          value={categoryFilter}
+          onChange={setCategoryFilter}
+        />
+        {!isDefault && (
+          <ResetButton
             onClick={() => {
               setSearch('');
               setCategoryFilter('');
-              setAscending(true);
             }}
-          >
-            Reset{' '}
-          </button>{' '}
-        </div>{' '}
-      </div>{' '}
-      <div className="skills-grid">
-        {' '}
-        {filtered.map((s, i) => (
-          <div
-            key={i}
-            className={`skill-card ${s.category === 'Soft' ? 'soft' : 'technical'}`}
-          >
-            <div className="skill-name"> {renderSkillName(s.name)} </div>{' '}
-            <div className="skill-category"> {s.category} </div>{' '}
-          </div>
-        ))}{' '}
-      </div>{' '}
+          />
+        )}
+      </div>
+
+      <ResultCount
+        count={skillCount}
+        noun={['skill', 'skills']}
+        query={search}
+      />
+
+      {visibleGroups.length === 0 ? (
+        <EmptyState
+          message="No skills match your search."
+          actionLabel="Clear filters"
+          onAction={() => {
+            setSearch('');
+            setCategoryFilter('');
+          }}
+        />
+      ) : (
+        CATEGORIES.map(([category, heading]) => {
+          const groups = visibleGroups.filter((g) => g.category === category);
+          if (groups.length === 0) return null;
+          return (
+            <section key={category} className="skills-section">
+              <h2 className="ui-section-title">{heading}</h2>
+              <div className="skills-grid">
+                {groups.map((g) => (
+                  <SkillGroup key={g.title} group={g} />
+                ))}
+              </div>
+            </section>
+          );
+        })
+      )}
     </div>
+  );
+}
+
+function SkillGroup({ group }) {
+  const hasLevels = group.skills.some((s) => s.level);
+  return (
+    <article className="ui-card skill-group">
+      <header className="skill-group-head">
+        <div className="ui-avatar soft" aria-hidden="true">
+          <Icon name={group.icon} />
+        </div>
+        <div>
+          <h3 className="skill-group-title">{group.title}</h3>
+          <p className="ui-card-sub">
+            {group.skills.length}{' '}
+            {group.skills.length === 1 ? 'skill' : 'skills'}
+          </p>
+        </div>
+      </header>
+
+      {hasLevels ? (
+        <ul className="skill-rows">
+          {group.skills.map((s) => (
+            <li key={s.name}>
+              <span className="skill-row-name">{s.name}</span>
+              {s.level && (
+                <span
+                  className={`ui-badge ${s.level === 'Proficient' ? 'solid' : ''}`}
+                >
+                  {s.level}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <ul className="skill-tags">
+          {group.skills.map((s) => (
+            <li key={s.name} className="skill-tag">
+              {s.name}
+            </li>
+          ))}
+        </ul>
+      )}
+    </article>
   );
 }
 

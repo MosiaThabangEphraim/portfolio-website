@@ -1,158 +1,82 @@
-.skills-container {
-  padding: 30px 50px 50px 50px;
-  color: #000000;
-  animation: fadeIn 1.5s ease-in;
-}
+/* Skill group cards; shared styles come from styles/ui.css. */
 
-.section-heading {
-  font-size: 2.8rem;
-  font-weight: bold;
-  color: #000000;
-  margin-bottom: 20px;
-  text-align: left;
-  text-transform: uppercase;
-}
-
-/* reuse controls style from Courses */
-
-.controls-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 30px;
-  align-items: flex-end;
-  background-color: #f5f5f5;
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 1.2s ease-in;
-  border: 1px solid #000000;
-}
-
-.control-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  color: #000000;
-  font-weight: bold;
-  font-size: 0.95rem;
-  min-width: 160px;
-}
-
-.control-group label {
-  color: #000000;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.controls-container input,
-.controls-container select {
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  color: #000000;
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  outline: none;
-  transition:
-    border 0.3s ease,
-    background-color 0.3s ease;
-  appearance: none;
-}
-
-.controls-container select option {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.controls-container button {
-  background-color: #f5f5f5;
-  color: #000000;
-  font-weight: bold;
-  border: 1px solid #000000;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.3s ease;
-}
-
-.controls-container button:hover {
-  background-color: #000000;
-  color: #ffffff;
+.skills-section + .skills-section {
+  margin-top: 36px;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.skill-group-head {
+  display: flex;
+  align-items: center;
   gap: 14px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--hairline);
 }
 
-.skill-card {
-  background-color: #f5f5f5;
-  border-radius: 12px;
-  padding: 14px;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
-  border: 1px solid #000000;
+.skill-group-head .ui-card-sub {
+  margin-top: 2px;
+  font-size: 0.82rem;
 }
 
-.skill-card:hover {
-  transform: translateY(-4px);
-}
-
-.skill-name {
-  font-weight: bold;
-  color: #000000;
-  margin-bottom: 6px;
-  white-space: normal;
-}
-
-.skill-title-line {
+.skill-group-title {
+  margin: 0;
+  font-size: 1.02rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-.skill-sub-lines {
-  display: block;
-  font-weight: 400;
-  white-space: pre-line;
+/* Tags for groups without levels */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.skill-category {
-  display: inline-block;
-  width: fit-content;
-  padding: 4px 10px;
+.skill-tag {
+  padding: 6px 12px;
   border-radius: 999px;
-  border: 1px solid #000000;
-  background-color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  background: var(--surface);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.3;
 }
 
-.skill-card.soft {
-  border-left: 4px solid #000000;
+/* Rows with a level badge (languages) */
+.skill-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.skill-card.technical {
-  border-left: 4px solid #000000;
+.skill-rows li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.skill-rows li + li {
+  border-top: 1px solid var(--hairline);
+}
+
+.skill-row-name {
+  font-size: 0.93rem;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 768px) {
-  .controls-container {
-    flex-direction: column;
-    align-items: flex-start;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 }

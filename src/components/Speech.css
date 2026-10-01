@@ -1,0 +1,190 @@
+/* ---------- Theme toggle (floating, bottom-right) ---------- */
+
+/*
+ * Sits to the LEFT of the Chatbase chat bubble (55px, 1rem from the right
+ * and bottom edges), centred on the same horizontal line. Not above it:
+ * Chatbase's greeting popup opens above the bubble and would cover it.
+ *   right  = 16px + 55px + 12px gap
+ *   bottom = 16px + (55px - 44px) / 2
+ */
+.theme-toggle {
+  position: fixed;
+  right: calc(1rem + 55px + 12px);
+  bottom: calc(1rem + 5.5px);
+  z-index: 1000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--fg);
+  color: var(--bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.3),
+    0 3px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- Listen (text-to-speech) ---------- */
+
+.listen-controls {
+  display: inline-flex;
+  gap: 6px;
+  vertical-align: middle;
+}
+
+.listen-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--fg);
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.listen-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.listen-btn:hover,
+.listen-btn.active {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.listen-btn.listen-stop {
+  padding: 5px 8px;
+}
+
+/* ---------- Voice input (speech-to-text) ---------- */
+
+.voice-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.voice-field > input,
+.voice-field > textarea {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  /* make room for the mic; beats the pages' own input padding */
+  padding-right: 40px !important;
+}
+
+.voice-field .voice-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.voice-field > textarea ~ .voice-btn {
+  top: 8px;
+  transform: none;
+}
+
+.voice-field .voice-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.voice-field .voice-btn:hover {
+  background: var(--surface-2);
+  color: var(--fg);
+}
+
+.voice-field .voice-btn.listening {
+  background: var(--fg);
+  color: var(--bg);
+  animation: voice-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes voice-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(128, 128, 128, 0);
+  }
+}
+
+.voice-status {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  white-space: nowrap;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.voice-status:empty {
+  display: none;
+}
+
+.voice-btn:focus-visible,
+.listen-btn:focus-visible,
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--fg);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-field .voice-btn.listening {
+    animation: none;
+  }
+}

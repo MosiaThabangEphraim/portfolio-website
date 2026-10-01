@@ -4,14 +4,14 @@ import goldenKeyPDF from '../assets/golden-key-certificate.pdf';
 
 export const awards = [
   {
-    title: 'INVESTEC TECH SCHOLARSHIP RECIPIENT',
+    title: 'Investec Tech Scholarship Recipient',
     organization: 'Investec Bank',
     year: 2026,
     description:
       'This scholarship is awarded to top performing tech talent, who are in their final year of studies, and includes industry mentorship and workplace readiness programs.',
   },
   {
-    title: 'GRADSTAR 2025 TOP 100',
+    title: 'GradStar 2025 Top 100',
     organization: 'GradStar Awards',
     year: 2025,
     description:
@@ -20,7 +20,7 @@ export const awards = [
     certificateLabel: 'View Certificate',
   },
   {
-    title: "FACULTY OF NATURAL AND AGRICULTURAL SCIENCES DEAN'S AWARD",
+    title: "Faculty of Natural and Agricultural Sciences Dean's Award",
     organization: 'North-West University, Vanderbijlpark Campus',
     year: 2025,
     description:
@@ -29,7 +29,7 @@ export const awards = [
     certificateLabel: 'View Certificate',
   },
   {
-    title: 'GOLDEN KEY HONOUR SOCIETY MEMBER',
+    title: 'Golden Key Honour Society Member',
     organization: 'Golden Key International Honour Society',
     year: 2025,
     description:

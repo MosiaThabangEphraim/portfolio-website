@@ -2,6 +2,17 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Awards.css';
 import { awards as awardsData } from '../data/awardsData';
+import ListenButton from '../components/ListenButton';
+import { Icon } from '../components/Icon';
+import {
+  EmptyState,
+  OrderButton,
+  PageHeader,
+  ResetButton,
+  ResultCount,
+  SearchField,
+  Segmented,
+} from '../components/ui';
 
 function Awards() {
   const location = useLocation();
@@ -18,119 +29,118 @@ function Awards() {
     }
   }, [location.state]);
 
-  const sortedAwards = useMemo(() => {
-    const items = [...awards];
-    items.sort((a, b) => {
-      if (sortField === 'title') {
-        const comp = a.title.localeCompare(b.title);
-        return ascending ? comp : -comp;
-      }
-      // sort by year
-      const comp = (a.year || 0) - (b.year || 0);
-      return ascending ? comp : -comp;
-    });
-    return items;
-  }, [awards, sortField, ascending]);
-
   const filteredAwards = useMemo(() => {
     const q = search.trim().toLowerCase();
-    if (!q) return sortedAwards;
-    return sortedAwards.filter((award) => {
-      return (
-        (award.title || '').toLowerCase().includes(q) ||
-        (award.organization || '').toLowerCase().includes(q) ||
-        (award.description || '').toLowerCase().includes(q) ||
-        String(award.year || '')
-          .toLowerCase()
-          .includes(q)
-      );
+    const items = [...awards].sort((a, b) => {
+      const comp =
+        sortField === 'title'
+          ? a.title.localeCompare(b.title)
+          : (a.year || 0) - (b.year || 0);
+      return ascending ? comp : -comp;
     });
-  }, [sortedAwards, search]);
+    if (!q) return items;
+    return items.filter((award) =>
+      [award.title, award.organization, award.description, award.year]
+        .map((v) => String(v || '').toLowerCase())
+        .some((v) => v.includes(q))
+    );
+  }, [awards, sortField, ascending, search]);
+
+  const isDefault = sortField === 'year' && !ascending && !search;
 
   return (
-    <div className="awards-container">
-      <div className="section-heading"> Awards </div>
-      <div className="controls-container">
-        <div className="control-group">
-          <label> Search </label>{' '}
-          <input
-            type="text"
-            placeholder="Search awards..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />{' '}
-        </div>{' '}
-        <div className="control-group">
-          <label> Sort By </label>{' '}
-          <select
-            value={sortField}
-            onChange={(e) => setSortField(e.target.value)}
-          >
-            <option value="year"> Year </option>{' '}
-            <option value="title"> Title </option>{' '}
-          </select>{' '}
-        </div>{' '}
-        <div className="control-group">
-          <label> Order </label>{' '}
-          <button onClick={() => setAscending(!ascending)}>
-            {' '}
-            {ascending ? 'Ascending' : 'Descending'}{' '}
-          </button>{' '}
-        </div>{' '}
-        <div className="control-group">
-          <label> Reset </label>{' '}
-          <button
+    <div className="ui-page">
+      <PageHeader
+        eyebrow="Recognition"
+        title="Awards"
+        subtitle="Scholarships, honours and academic awards."
+      />
+
+      <div className="ui-toolbar">
+        <SearchField
+          value={search}
+          onChange={setSearch}
+          placeholder="Search awards, organisations, years…"
+          label="Search awards"
+        />
+        <Segmented
+          label="Sort by"
+          options={[
+            ['year', 'Year'],
+            ['title', 'Title'],
+          ]}
+          value={sortField}
+          onChange={setSortField}
+        />
+        <OrderButton
+          ascending={ascending}
+          onToggle={() => setAscending(!ascending)}
+          labels={
+            sortField === 'year'
+              ? ['Oldest first', 'Newest first']
+              : ['A to Z', 'Z to A']
+          }
+        />
+        {!isDefault && (
+          <ResetButton
             onClick={() => {
               setSortField('year');
               setAscending(false);
               setSearch('');
             }}
-          >
-            Reset{' '}
-          </button>{' '}
-        </div>{' '}
+          />
+        )}
       </div>
-      {filteredAwards.map((award, idx) => (
-        <div key={idx} className="award-block">
-          <div className="award-field">
-            <div className="award-label"> Title </div>{' '}
-            <div className="award-value award-title"> {award.title} </div>{' '}
-          </div>{' '}
-          <div className="award-field">
-            <div className="award-label"> Awarding Organization </div>{' '}
-            <div className="award-value award-institution">
-              {' '}
-              {award.organization}{' '}
-            </div>{' '}
-          </div>{' '}
-          <div className="award-field">
-            <div className="award-label"> Year </div>{' '}
-            <div className="award-value award-date"> {award.year} </div>{' '}
-          </div>{' '}
-          <div className="award-field">
-            <div className="award-label"> Description </div>{' '}
-            <div className="award-value award-description">
-              {' '}
-              {award.description}{' '}
-            </div>{' '}
-          </div>{' '}
-          {award.certificateUrl && award.certificateUrl !== '#' && (
-            <div className="award-field">
-              <div className="award-label"> Certificate </div>{' '}
-              <div className="award-value">
-                <a
-                  href={award.certificateUrl}
-                  className="award-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {award.certificateLabel}{' '}
-                </a>{' '}
-              </div>{' '}
-            </div>
-          )}{' '}
+
+      <ResultCount
+        count={filteredAwards.length}
+        noun={['award', 'awards']}
+        query={search}
+      />
+
+      {filteredAwards.length === 0 ? (
+        <EmptyState
+          message="No awards match your search."
+          actionLabel="Clear search"
+          onAction={() => setSearch('')}
+        />
+      ) : (
+        <div className="ui-grid">
+          {filteredAwards.map((award) => (
+            <article
+              key={award.title}
+              className="ui-card interactive award-card"
+            >
+              <div className="award-top">
+                <div className="ui-avatar" aria-hidden="true">
+                  <Icon name="award" />
+                </div>
+                <span className="ui-badge">{award.year}</span>
+              </div>
+              <h2 className="ui-card-title award-title">{award.title}</h2>
+              <p className="ui-card-sub">{award.organization}</p>
+              <p className="ui-card-body">{award.description}</p>
+              <div className="ui-actions award-actions">
+                <ListenButton
+                  label={award.title}
+                  text={`${award.title}, ${award.organization}, ${award.year}. ${award.description}`}
+                />
+                {award.certificateUrl && award.certificateUrl !== '#' && (
+                  <a
+                    href={award.certificateUrl}
+                    className="ui-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon name="external" />
+                    {award.certificateLabel || 'View certificate'}
+                  </a>
+                )}
+              </div>
+            </article>
+          ))}
         </div>
-      ))}{' '}
+      )}
     </div>
   );
 }

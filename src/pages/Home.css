@@ -1,11 +1,13 @@
+/* Home hero and sections; shared styles come from styles/ui.css. */
+
 .home-container {
   width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 42px 0;
-  color: #000000;
-  animation: fadeIn 0.9s ease-in;
+  padding: 24px 4px 40px;
+  color: var(--fg);
+  animation: uiFadeIn 0.5s ease-out;
 }
+
+/* ---------- Hero ---------- */
 
 .home-top {
   display: grid;
@@ -18,134 +20,79 @@
 .home-copy {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
 }
 
 .home-role {
-  font-size: 0.85rem;
-  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #000000;
-  font-weight: 700;
+  color: var(--muted);
 }
 
 .home-name {
   margin: 0;
-  font-size: 4rem;
-  line-height: 0.95;
-  letter-spacing: 0.06em;
-  color: #000000;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--fg);
 }
 
 .hero-tagline {
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #000000;
-  max-width: 680px;
-  text-align: justify;
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--muted);
 }
 
 .home-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
   align-items: center;
+  gap: 12px;
+  margin-top: 6px;
 }
 
 .search-bar-container {
   position: relative;
-  width: min(420px, 100%);
+  flex: 1 1 280px;
+  max-width: 440px;
 }
 
-.resume-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 36px;
-  border-radius: 28px;
-  background: #000000;
-  color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
-  border: 1px solid #000000;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.resume-button:hover {
-  background: #333333;
-  transform: translateY(-1px);
-}
-
-.search-bar {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 18px;
-  border: 1px solid #000000;
-  background-color: #ffffff;
-  color: #000000;
-  font-size: 0.97rem;
-  outline: none;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.search-bar:focus {
-  border-color: #000000;
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+.search-bar-container .ui-search input {
+  height: 52px;
+  border-radius: 14px;
 }
 
 .dropdown-list {
   position: absolute;
-  top: 115%;
+  top: calc(100% + 8px);
   left: 0;
   right: 0;
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 14px;
-  list-style: none;
-  margin: 10px 0 0;
-  padding: 10px 0;
   z-index: 10;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border-radius: 14px;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .dropdown-list li {
-  padding: 12px 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--fg);
   cursor: pointer;
-  font-weight: 600;
-  color: #000000;
-  transition: background 0.2s ease;
+  transition: background-color 0.15s ease;
 }
 
 .dropdown-list li:hover {
-  background: #f0f0f0;
-}
-
-.resume-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 36px;
-  border-radius: 28px;
-  background: #000000;
-  color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
-  border: 1px solid #000000;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.resume-button:hover {
-  background: #333333;
-  transform: translateY(-1px);
+  background: var(--surface);
 }
 
 .hero-avatar {
@@ -158,92 +105,57 @@
   height: 300px;
   border-radius: 50%;
   object-fit: cover;
-  border: 6px solid #000000;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+  object-position: center top;
+  /* soft ring instead of a hard border */
+  box-shadow:
+    0 0 0 8px var(--surface),
+    0 30px 60px rgba(0, 0, 0, 0.12);
 }
+
+/* ---------- Focus areas ---------- */
 
 .home-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .home-card {
-  background: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 24px;
-  padding: 26px 24px;
-  min-height: 170px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
 }
 
 .card-title {
   font-size: 1.05rem;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 12px;
 }
 
-.card-text {
-  color: #000000;
-  line-height: 1.8;
-  font-size: 0.96rem;
-  text-align: justify;
+/* keeps the Listen button at the bottom of each card */
+.card-listen {
+  margin-top: auto;
+  padding-top: 16px;
 }
+
+/* ---------- About ---------- */
 
 .home-about {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .home-about .about-heading {
-  margin: 0;
-  font-size: 1.6rem;
-  line-height: 1.1;
-  color: #000000;
-}
-
-.home-about p {
-  margin: 0;
-  color: #000000;
-  font-size: 1rem;
-  line-height: 1.85;
-  width: 100%;
-  text-align: justify;
-}
-
-.home-footer {
-  text-align: left;
-  margin-top: 16px;
-}
-
-.home-email {
-  font-size: 0.98rem;
-  color: #000000;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 1.3rem;
 }
 
 .home-signature {
   font-family: 'Georgia', 'Garamond', serif;
   font-style: italic;
   font-size: 2rem;
-  color: #000000;
   font-weight: 600;
-}
-
-.game-section {
-  margin-top: 42px;
+  color: var(--fg);
 }
 
 @media screen and (max-width: 1040px) {
-  .home-top {
-    grid-template-columns: 1fr;
-  }
-
+  .home-top,
   .home-cards {
     grid-template-columns: 1fr;
   }
@@ -255,20 +167,13 @@
 
 @media screen and (max-width: 760px) {
   .home-container {
-    padding: 24px 0;
-  }
-
-  .home-name {
-    font-size: 2.8rem;
-  }
-
-  .hero-tagline {
-    font-size: 1rem;
+    padding-top: 8px;
   }
 
   .search-bar-container,
-  .resume-button {
+  .home-actions .ui-btn {
     width: 100%;
+    max-width: none;
   }
 
   .home-actions {
@@ -277,7 +182,7 @@
   }
 
   .hero-avatar img {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
   }
 }

@@ -1,0 +1,535 @@
+/*
+ * Shared design kit used by every page: page header, toolbar controls,
+ * cards, badges, buttons and empty states. Colours come from the theme
+ * tokens in index.css, so everything works in light and dark mode.
+ */
+
+/* ---------- Page ---------- */
+
+.ui-page {
+  padding: 8px 4px 40px;
+  color: var(--fg);
+  animation: uiFadeIn 0.5s ease-out;
+}
+
+.ui-header {
+  margin-bottom: 28px;
+}
+
+.ui-eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ui-title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--fg);
+}
+
+.ui-subtitle {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 620px;
+}
+
+.ui-section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 32px 0 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ui-section-title:first-child {
+  margin-top: 0;
+}
+
+.ui-section-title small {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* ---------- Toolbar ---------- */
+
+.ui-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.voice-field.ui-search {
+  flex: 1 1 280px;
+  width: auto;
+}
+
+.ui-search input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px 0 42px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.ui-search input::placeholder {
+  color: var(--muted);
+}
+
+.ui-search input:focus {
+  background: var(--card-bg);
+  border-color: var(--hairline);
+  box-shadow: 0 0 0 4px var(--hairline);
+}
+
+.ui-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.ui-search-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ui-segmented {
+  display: inline-flex;
+  padding: 4px;
+  gap: 2px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.ui-segmented button {
+  height: 36px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.ui-segmented button:hover {
+  color: var(--fg);
+}
+
+.ui-segmented button.selected {
+  background: var(--card-bg);
+  color: var(--fg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.ui-select {
+  height: 44px;
+  padding: 0 38px 0 14px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--surface);
+  /* chevron drawn with two gradients so it follows the text colour */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    right 18px center,
+    right 13px center;
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.ui-select:hover {
+  background-color: var(--surface-2);
+}
+
+.ui-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.ui-chip-btn:hover {
+  background: var(--surface-2);
+}
+
+.ui-chip-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-text-btn {
+  height: 44px;
+  padding: 0 10px;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.ui-text-btn:hover {
+  color: var(--fg);
+}
+
+.ui-count {
+  margin: 0 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Cards ---------- */
+
+.ui-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 22px 24px;
+  box-shadow: var(--card-shadow);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ui-card.interactive:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.ui-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ui-card-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--fg);
+}
+
+.ui-card-sub {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* Paragraph text in cards: justified, with hyphenation so narrow
+   cards don't get large gaps between words. */
+.ui-card-body {
+  margin: 14px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--fg);
+  opacity: 0.85;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.ui-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.ui-meta.divided {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.ui-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.ui-meta-item svg {
+  width: 15px;
+  height: 15px;
+}
+
+.ui-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.ui-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Rounded tile with an icon or initials, used beside card titles */
+.ui-avatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.ui-avatar svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ui-avatar.soft {
+  background: var(--surface);
+  color: var(--fg);
+}
+
+/* ---------- Badges ---------- */
+
+.ui-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ui-badge.success {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.ui-badge.info {
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+.ui-badge.danger {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.ui-badge.solid {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.ui-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ---------- Buttons & links ---------- */
+
+.ui-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.ui-btn:hover {
+  background: var(--surface-2);
+}
+
+.ui-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-btn.primary {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.ui-btn.primary:hover {
+  background: var(--fg-hover);
+}
+
+.ui-btn.large {
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 14px;
+  font-size: 1rem;
+}
+
+/* ---------- Stats ---------- */
+
+.ui-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.ui-stat {
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.ui-stat-value {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.ui-stat-label {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ---------- Empty state ---------- */
+
+.ui-empty {
+  padding: 48px 24px;
+  text-align: center;
+  border-radius: 18px;
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.ui-empty p {
+  margin: 0 0 8px;
+}
+
+/* ---------- Focus & motion ---------- */
+
+.ui-segmented button:focus-visible,
+.ui-chip-btn:focus-visible,
+.ui-text-btn:focus-visible,
+.ui-select:focus-visible,
+.ui-btn:focus-visible,
+.ui-card a:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .ui-card {
+    padding: 18px;
+  }
+
+  .ui-card-head {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ui-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes uiFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-page,
+  .ui-card,
+  .ui-btn {
+    animation: none;
+    transition: none;
+  }
+}

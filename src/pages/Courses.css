@@ -1,233 +1,126 @@
-.course-container {
-  padding: 30px 50px 50px 50px;
-  color: #000000;
-  animation: fadeIn 1.5s ease-in;
-  background-color: transparent;
+/* Coursework tables; shared styles come from styles/ui.css. */
+
+.stat-of {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
 }
 
-.section-heading {
-  font-size: 2.8rem;
-  font-weight: bold;
-  color: #000000;
-  margin-bottom: 20px;
-  text-align: left;
-  text-transform: uppercase;
+.course-years {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.course-block {
-  background-color: #f5f5f5;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-  border: 1px solid #000000;
-}
-
-.course-block:hover {
-  transform: translateY(-5px);
-}
-
-.course-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #000000;
-  margin-bottom: 8px;
-}
-
-.highlight-info {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: #000000;
+.course-year-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
   margin-bottom: 14px;
-  font-weight: bold;
 }
 
 .course-table {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  border-collapse: collapse;
+  font-size: 0.93rem;
 }
 
-.course-row {
-  display: grid;
-  grid-template-columns: 2.5fr 1fr 1fr;
-  align-items: center;
-  font-weight: bold;
-  color: #000000;
-  padding: 6px 8px;
-  border-radius: 6px;
+.course-table th {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--hairline);
 }
 
-.course-header {
-  color: #000000;
-  background: #f0f0f0;
+.course-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: middle;
+}
+
+.course-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.course-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.course-table tbody tr:hover {
+  background: var(--surface);
 }
 
 .course-module {
-  padding-right: 10px;
-}
-
-.course-code,
-.course-result {
-  text-align: left;
-}
-
-.highlighted-module {
-  background-color: #f0f0f0;
-  border-left: 4px solid #000000;
-}
-
-.course-average {
-  color: #000000;
-  font-weight: bold;
-}
-
-.overall-average {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #000000;
-  font-weight: bold;
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-  border: 1px solid #000000;
-}
-
-/* ==== Styling for search/filter/sort bars ==== */
-
-.controls-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 30px;
-  align-items: flex-end;
-  background-color: #f5f5f5;
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 1.2s ease-in;
-}
-
-.control-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  color: #000000;
-  font-weight: bold;
-  font-size: 0.95rem;
-  min-width: 160px;
-}
-
-.control-group label {
-  color: #000000;
-  font-size: 0.85rem;
   font-weight: 500;
 }
 
-.controls-container input,
-.controls-container select {
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  color: #000000;
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  outline: none;
-  transition:
-    border 0.3s ease,
-    background-color 0.3s ease;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+.course-core {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
 }
 
-.controls-container input:focus,
-.controls-container select:focus {
-  border-color: #000000;
-  background-color: #ffffff;
+.course-code {
+  width: 110px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
-/* ✅ Fix for dropdown item visibility */
-
-.controls-container select option {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.controls-container button {
-  background-color: #000000;
-  color: #ffffff;
-  font-weight: bold;
-  border: 1px solid #000000;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.3s ease;
-}
-
-.controls-container button:hover {
-  background-color: #333333;
-}
-
-.controls-container input::placeholder {
-  color: #bbb;
-}
-
-.controls-container input:focus,
-.controls-container select:focus {
-  border-color: #000000;
-  background-color: #ffffff;
+.course-result {
+  width: 130px;
 }
 
 @media screen and (max-width: 768px) {
-  .controls-container {
+  .course-year-head {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 8px;
   }
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  /* stack each row: module on top, code and result underneath */
+  .course-table thead {
+    display: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .course-table tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hairline);
   }
-}
 
-.course-info {
-  display: flex;
-  flex-direction: column;
-  margin-top: 14px;
-  gap: 6px;
-}
+  .course-table tbody tr:last-child {
+    border-bottom: none;
+  }
 
-.course-modules,
-.course-average {
-  font-weight: bold;
-  color: #000000;
-}
+  .course-table td {
+    padding: 0;
+    border: none;
+  }
 
-.award-link {
-  display: inline-block;
-  padding: 8px 12px;
-  background-color: #f5f5f5;
-  color: #000000;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  border: 1px solid #000000;
-}
+  .course-module {
+    grid-column: 1 / -1;
+  }
 
-.award-link:hover {
-  background-color: #000000;
-  color: #ffffff;
+  .course-code,
+  .course-result {
+    width: auto;
+  }
+
+  .course-table tbody tr:hover {
+    background: none;
+  }
 }

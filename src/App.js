@@ -10,6 +10,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Links from './pages/Links';
 import './App.css';
+import ThemeToggle from './components/ThemeToggle';
 
 // Modern SVG Icon Component
 const IconSvg = ({ type }) => {
@@ -219,6 +220,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
+        <ThemeToggle />
       </div>
     </Router>
   );

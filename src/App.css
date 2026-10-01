@@ -3,8 +3,8 @@ body {
   font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--app-bg);
+  color: var(--fg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -27,9 +27,9 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #000000;
-  border: 2px solid #000000;
-  color: #ffffff;
+  background: var(--fg);
+  border: 2px solid var(--fg);
+  color: var(--bg);
   font-size: 1.2rem;
   cursor: pointer;
   padding: 0;
@@ -41,17 +41,17 @@ body {
 }
 
 .sidebar-toggle:hover {
-  background: #333333;
-  border-color: #333333;
+  background: var(--fg-hover);
+  border-color: var(--fg-hover);
   transform: scale(1.05);
 }
 
 .sidebar {
   width: 140px;
-  background: #ffffff;
+  background: var(--bg);
   border-radius: 40px;
   padding: 26px 18px;
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +61,6 @@ body {
   height: fit-content;
   max-height: calc(100vh - 32px);
   transition: all 0.3s ease;
-  border: 2px solid #000000;
   flex-shrink: 0;
   overflow-y: auto;
 }
@@ -90,8 +89,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000000;
-  color: #ffffff;
+  background: var(--fg);
+  color: var(--bg);
   font-size: 1.3rem;
   flex-shrink: 0;
 }
@@ -99,12 +98,12 @@ body {
 .logo-icon svg {
   width: 28px;
   height: 28px;
-  stroke: #ffffff;
+  stroke: var(--bg);
 }
 
 .logo-label {
   font-size: 0.85rem;
-  color: #000000;
+  color: var(--fg);
   font-weight: 700;
 }
 
@@ -130,7 +129,7 @@ body {
   justify-content: center;
   gap: 4px;
   text-decoration: none;
-  color: #000000;
+  color: var(--fg);
   font-size: 0.85rem;
   padding: 12px 10px;
   border-radius: 20px;
@@ -145,36 +144,36 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #000000;
+  color: var(--fg);
 }
 
 .icon-svg {
   width: 100%;
   height: 100%;
-  stroke: #000000;
+  stroke: var(--fg);
   stroke-width: 2;
-  color: #000000;
+  color: var(--fg);
 }
 
-.sidebar-item:hover .icon-svg,
+.sidebar-item:hover {
+  background: var(--surface);
+}
+
 .sidebar-item.active .icon-svg {
-  stroke: #ffffff;
+  stroke: var(--bg);
 }
 
-.sidebar-item:hover,
 .sidebar-item.active {
-  background: #000000;
-  color: #ffffff;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+  background: var(--fg);
+  color: var(--bg);
 }
 
 .content {
   flex: 1;
   padding: 30px;
-  background: #ffffff;
+  background: var(--bg);
   border-radius: 32px;
-  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.08);
-  border: 2px solid #000000;
+  box-shadow: var(--card-shadow);
   min-width: 0;
   overflow-y: auto;
   max-height: calc(100vh - 32px);
